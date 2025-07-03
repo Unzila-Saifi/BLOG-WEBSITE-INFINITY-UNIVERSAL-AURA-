@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/web-icon.png">
+    <title>Popular Posts - Infinity Universal Aura</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Pacifico&family=Bebas+Neue&family=Cinzel&family=Poppins&display=swap" rel="stylesheet">
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+}
+.top{
+    height: 65px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.top-navbar{
+    background-color: #00b7a5;
+    position:sticky;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#ffffff ;
+  }
+  .top-navbar h4{
+    font-size: 15px;
+    font-weight: 700;
+    font-family: cursive;
+    font-style: italic;
+  }
+    .logo{ 
+      font-size: 25px;
+      color: #33363d;
+    }
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background: #ffffff;
+        height: 50px;
+        border-bottom: 2px solid #00b7a5;
+    }
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        padding-right: 50px;
+        padding-top: 10px;
+    }
+    
+    .nav-links li a {
+        color: #333;
+        text-decoration: none;
+        font-size: 20px;
+        font-family: arial;
+        font-weight: 300;
+        padding-left: 15px;
+        padding-top: 20px;
+    }
+    .nav-links li:hover a{
+      color:#00b7a5;
+    }
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: #333;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        right: 22px;
+    }
+    .menu-toggle:hover{
+      font-size: 30px;
+      color: #00b7a5;
+    }
+    
+    .sidebar {
+        position: fixed;
+        top: 105px;
+        left: -100%;
+        width: 250px;
+        height: 60%;
+        background-color: #ffffff;
+        padding: 20px;
+        transition: left 0.3s ease-in-out;
+        visibility: hidden;
+        z-index: 1;
+        font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0; 
+  }
+  .sidebar ul li a:hover{
+      box-shadow: 0 2px 7px #00897b;
+      /* background-color: #e6e6e7; */
+      color: #00b7a5;
+  }
+  
+  .sidebar ul li a {
+    color: #333;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      left: 200px;
+      top:33px;
+      font-family: arial;
+  }
+  .close-btn {
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 24px;
+      cursor: pointer;
+      position: absolute;
+      left:215px;
+  }
+  .close-btn:hover{
+    font-size: 30px;
+    color: #00b7a5;
+  }
+  .show{
+      display: none;
+      position: absolute;
+      background-color:#ffffff ;
+      min-width: 150px;
+      z-index: 1;
+      padding-left: 15px;
+    
+    }
+    .show li{
+      float: none;
+      list-style: none;
+    }
+    .show li a{
+      color: #333;
+      text-decoration: none;
+      display: block;
+      font-size:  .9330em;
+      line-height: 20px;
+      padding-bottom: 15px;
+    }
+    .cat:hover .show{
+      display: block;
+    }
+    .cat:hover .show a{
+      color: #333;
+    }
+    .cat:hover .show a:hover{
+      color:#00b7a5;
+      /* box-shadow: 0 2px 2px #00b7a5; */
+    }
+    .show li a:hover{
+      box-shadow: 0 2px 7px #00b7a5;
+      /* background-color: #e6e6e75d; */
+    }
+    .show li{
+      width: 200px;
+      height: 50px;
+      padding:0 0 5px 10px;
+      margin-right: 30px;
+    }
+    
+  @media (max-width: 768px) {
+      .menu-toggle {
+          display: block;
+      }
+      .nav-links {
+          display: none;
+      } 
+  }
+.mid{
+    height: 100%;
+    width: 100%;
+    padding-top: 43px;
+}
+
+h1, h2 {
+    text-transform: capitalize;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  }
+
+  .pop_hero {
+    background-color: #00b7a5;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .pop_hero h1 {
+    font-size: 36px;
+    margin: 10px 0;
+  }
+
+  .pop_intro {
+    max-width: 800px;
+    margin: 10px auto;
+    line-height: 1.6;
+  }
+
+   .popular_posts {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;
+  } 
+
+  .pop-card {
+    background: white;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    align-items: center;
+    height: 300px; 
+  }
+
+  .pop-card img {
+    width: 100%;
+    max-width: 300px;
+    height:300px;
+    border-radius: 6px;
+    border: 3px solid #00b7a5;
+    object-fit: cover;
+    flex-shrink: 0;
+    position: relative;
+    bottom: 25px;
+  }
+ 
+  .pop-content h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+  .pop-content {
+  flex: 1;
+  min-width: 250px;
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;     /* Horizontally center */
+  justify-content: center; /* Vertically center (if needed) */
+  text-align: center;      /* Center text */
+  height:350px;
+  position: relative;
+  top: 17px;
+}
+
+  .pop-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .pop-content a {
+    font-size: 18px;
+    text-decoration: none;
+  }
+
+  .pop_btn {
+    display: inline-block;
+    background:#00b7a5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.3s;
+  }
+
+  .pop_btn:hover {
+    background: #006666;
+  }
+
+
+  .pop_btn {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  @media (max-width: 768px) {
+      .pop-card {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .pop-card img {
+        height: auto;
+      }
+    }
+
+
+.end{
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+}
+.footer{
+    bottom: 0;
+    width: 100%;
+    height: 500px;
+  }
+  footer {
+    width: 100%;
+    background: #f5f5f5;
+    color:black;
+    padding: 20px 0;
+    font-size: 14px;
+    border-top-right-radius: 200px;
+    font-family: 'Poppins', sans-serif;
+}
+footer h2, footer h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    padding-top: 20px;
+}
+footer a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+footer p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    padding-top: 17px;
+}
+hr{
+color: #00b7a5;
+}
+/* Footer Container */
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+/* Row Layout */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Columns (Ensure 4 columns fit in one row) */
+.col {
+    flex: 0 0 22%;
+    min-width: 200px;
+    margin-bottom: 10px;
+}
+
+/* Column Titles */
+.col h3 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.col h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 3px;
+    /* background: linear-gradient(to right, black,#b3b3b3); */
+}
+
+/* Footer Links */
+.remove {
+    text-decoration: none;
+    color: #808080;
+}
+
+.remove:hover {
+    color:#00b7a5;
+}
+
+/* Newsletter Section */
+.explore form {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #808080;
+    padding-bottom: 5px;
+    width: 250px;
+    padding-top: 20px;
+}
+.explore form input {
+    height:21.2px;
+    flex: 1;
+    background:white;
+    border: none;
+    outline: none;
+    color: #808080;
+    padding: 5px;
+    position: relative;
+    bottom:10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 2px solid #808080;
+    border-right: none;  
+}
+.explore form input:hover {
+    box-shadow: 0 0 5px #00b7a5;
+}
+#envelope{
+    position: relative;
+    bottom:10px;
+    font-size: 30px;
+    padding-right: 5px;
+}
+.explore input::placeholder {
+    color: #808080;;
+}
+
+.explore form button {
+    height:35px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background:#00b7a5;
+    border: none;
+    cursor: pointer;
+    color:white;
+    position: relative;
+    bottom:10px;
+    border: 2px solid #808080;
+    border-left: none;
+    width: 25px;
+}
+#foot-icon {
+    font-family: cursive;
+    color:#2c2c2c;
+    font-size: 15px;
+}
+
+/* Social Icons */
+.social-icons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.social-icons i {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background:white;
+    color:#00b7a5;
+    border:1px solid #00b7a5;
+    font-size: 16px;
+    cursor: pointer;
+}
+.fa-instagram:hover {
+    background-color:#e4405f;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-facebook:hover {
+    background-color:#1877f2;
+    color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-whatsapp:hover {
+   background-color: #25d366;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-x-twitter:hover {
+    background-color: black;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.social-icons a {
+    text-decoration: none;
+}
+/* Legal & Copyright Section */
+.cont {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+}
+
+.down {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.down a {
+    text-decoration: none;
+    color: #808080;
+    font-size: 14px;
+}
+
+.down a:hover {
+    color:#00b7a5;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 12px;
+    color:black;
+    font-weight: 300;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .col {
+        flex: 0 0 48%;
+    }
+}
+
+@media (max-width: 600px) {
+    .col {
+        flex: 0 0 100%;
+        text-align: center;
+    }
+    
+    .down {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Centering Email Input */
+    .explore form {
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    /* Centering Social Icons */
+    .social-icons {
+        justify-content: center;
+    }
+    #foot-icon{
+      padding-right: 50px;
+    }
+}
+.logo img{
+    width: 120px;
+    height: 50px;
+}
+</style>
+<body>
+   <div class="top">
+    <header>
+        <div class="top-navbar">
+            <h4>&hearts;&nbsp; Explore The World Of Personalized Gifts</h4>
+        </div>
+        <nav class="navbar">
+            <div class="logo"><img src="images/web-name.jpg" alt="img"></div>
+            <ul class="nav-links" id="nav-links"></ul>
+            <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+        </nav>
+    </header>
+    <!-- Sidebar Menu -->
+    <aside class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <ul id="sidebar-links"></ul>
+    </aside>
+
+    <!-- Hidden Menu Items (Used for both Navbar & Sidebar) -->
+    <ul id="menu-items" style="display: none;">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about-page.html">About</a></li>
+        <li><a href="contact-page.html">Contacts</a></li>
+        <li class="cat"><a href="#">Categories</a>
+            <ul class="show">
+                <li><a href="gift-items-page.html">Gifts Item</a></li>
+                <li><a href="wedding-gift-page.html">Wedding Items</a></li>
+                <li><a href="calligraphy-items-page.html">Calligraphy Frames</a></li>
+                <li><a href="occasion-item-page.html">Occasions Items</a></li>
+                <li><a href="Home-decor-item-page.html">Home Decor Items</a></li>
+            </ul>
+        </li>
+    </ul>
+   </div>
+   <div class="mid">
+    <main>
+      <header class="pop_hero">
+        <h1>popular posts</h1>
+        <p class="pop_intro">Discover the freshest and most trending content from around the world, carefully curated to provide value, insight, and relevance in today’s fast-paced digital world.</p>
+        <p class="pop_intro">From technology trends and lifestyle tips to educational resources and creative ideas, our popular posts cover a wide range of topics for every reader.
+        </p>
+      </header>
+    
+      <main class="popular_posts">
+    
+        <section class="pop-card">
+          <img src="images/read-more-3,4.jpg" alt="product_image" />
+          <div class="pop-content">
+            <h2>Birthday Frame</h2>
+            <p>Capturing the essence of your special day, our birthday photo frames add a touch of magic to your cherished memories,Create unforgettable birthday memories with beautifully designed photo frames that showcase your favorite moments</p>
+            <a href="images/read-more-3.html" class="pop_btn">Go To Page</a>
+          </div>
+        </section>
+    
+        <section class="pop-card">
+          <img src="images/pen-2.jpg" alt="product_image" />
+          <div class="pop-content">
+            <h2>Customize Pens</h2>
+            <p>Make your mark with a personalized touch. Our customized pens are perfect for special occasions, gifts, or everyday use,Add a touch of elegance and sophistication to your writing experience with our beautifully crafted customized pens.</p>
+              <a href="read-more-13.html" class="pop_btn">Go To Page</a>
+          </div>
+        </section>
+    
+        <section class="pop-card">
+          <img src="images/read-more-2,3.jpg" alt="product_image" />
+          <div class="pop-content">
+            <h2>Wallets</h2>
+            <p>Our customized wallets are designed to capture the essence of your special bond. With elegant designs and personalized touches, make your wallet a reflection of your love,Make a statement with our bespoke wallets! Crafted with love and attention to detail, our wallets are perfect for couples who want to showcase their unique love story,Keep your love close to heart with our customized wallets! </p>
+              <a href="read-more-2.html" class="pop_btn">Go To Page</a>
+          </div>
+        </section>
+    
+        <section class="pop-card">
+          <img src="images/read-more-5,2.jpg" alt="product_image" />
+          <div class="pop-content">
+            <h2>Couple Name Frame</h2>
+            <p>Create a masterpiece of your love story with our customized couple name frames! Personalize your frame with your names and make it a treasured possession that celebrates your love. Personalized love stories, forever framed,a unique gift for loved ones,Forever entwined: couple name frames for a lifetime of love. </p>
+              <a href="read-more-5.html" class="pop_btn">Go To Page</a>
+          </div>
+        </section>
+    
+        <section class="pop-card">
+          <img src="images/nikah-frame.jpg" alt="product_image" />
+          <div class="pop-content">
+            <h2>Nikah-Nama</h2>
+            <p>A beautiful Nikah Nama is a treasured keepsake, documenting the sacred vows and promises exchanged between the bride and promises exchanged between the bride and groom,The Nikah Nama serves as a reminder of the commitment, love, and devotion that the couple has pledged to each other, forming the foundation of their life together.</p>
+              <a href="read-more-1.html" class="pop_btn">Go To Page</a>
+          </div>
+        </section>
+
+    </main>
+      
+   </div>
+   <div class="end">
+    <div class="footer">
+        <footer>
+          <div class="container"> 
+              <div class="row">
+                  <div class="col company">
+                      <p id="foot-icon">Welcome to my blogging website where we share insightful content on your blogs. Stay connected for the latest updates, tips & trends. Follow us on social media & subscribe to our newsletter.</p>
+                  </div>
+                  <div class="col">
+                      <h3>Quick Links</h3>
+                      <p><a class="remove" href="home.html">Home</a></p>
+                      <p><a class="remove" href="blog-page.html">Blog</a></p>
+                      <p><a class="remove" href="topics-page.html">Topics</a></p>
+                      <p><a class="remove" href="latest-post-page.html">Latest Post</a></p>
+                      <p><a class="remove" href="about-page.html">About Us</a></p>
+                      <p><a class="remove" href="contact-page.html">Contact Us</a></p>
+                  </div>
+                  <div class="col">
+                      <h3>Legal Policies</h3>
+                      <p><a class="remove" href="privacy-page.html">Privacy Policy</a></p>
+                      <p><a class="remove" href="terms-condition-page.html">Terms & Conditions</a></p>
+                      <p><a class="remove" href="disclaimer-page.html">Disclaimer</a></p>
+                      <p><a class="remove" href="blog-resources-page.html">Blog Resources</a></p>
+                      <p><a class="remove" href="copyright-page.html">Copyright</a></p>
+                      <p><a class="remove" href="FAQ-page.html">FAQs</a></p>
+                  </div>
+                  <div class="col">
+                      <h3>Product Related</h3>
+                      <p><a class="remove" href="service-page.html">Services</a></p>
+                      <p><a class="remove" href="feature-page.html">Features</a></p>
+                      <p><a class="remove" href="review-page.html">Blog Reviews</a></p>
+                      <p><a class="remove" href="popular-post-page.html">Popular Posts</a></p>
+                      <p><a class="remove" href="freelancer-page.html">Freelancers</a></p>
+                      <p><a class="remove" href="advertise-page.html">Advertise With Us</a></p>
+                  </div>
+                  <div class="col explore">
+                      <h3>Explore More</h3>
+                      <form>
+                          <i class="fa-solid fa-envelope" id="envelope"></i>
+                          <input type="email" placeholder="Enter your email id" required>
+                          <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                      </form>
+                      <div class="social-icons">
+                          <a href="https://www.facebook.com/share/19Fxw6ZmtV/"><i class="fa-brands fa-facebook"></i></a>
+                          <a href="https://www.instagram.com/digital_"><i class="fa-brands fa-instagram"></i></a>
+                          <a href="https://wa.me/917037350523"><i class="fa-brands fa-whatsapp"></i></a>
+                          <a href="https://x.com/digitaldyn81811?t=uFlUqkQbARhyXJQnU3dE1A&s=09"><i class="fa-brands fa-x-twitter"></i></a>
+                      </div>
+                  </div>
+              </div>
+              <div class="cont">
+                  <hr>
+                  <div class="down">
+                      <span><a href="conditon-use-sale.html" class="remove">Conditions of Use & Sale</a></span>
+                      <span><a href="interest-based-ads.html" class="remove">Interest-Based Ads</a></span>
+                  </div>
+                  <p class="copyright">© 2020-2025, BlogWebsite. All rights Reserved</p>
+              </div>
+          </div>
+      </footer>
+   </div>
+   <script defer src="final.js"></script>
+</body>
+</html>

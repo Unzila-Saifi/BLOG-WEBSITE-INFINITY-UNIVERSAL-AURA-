@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/web-icon.png">
+    <title>Pens - Infinity Universal Aura</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+         box-sizing: border-box;
+    }
+    body{
+        font-family: Georgia, serif;
+         line-height: 1.6;
+           overflow-x: hidden;
+    }
+    .up{
+        height: 65px;
+        position: sticky;
+        top: 0;
+         z-index: 345000000000000000000000000000;
+    }
+    .mid{
+        height: 75%vh;
+        width: 100%;
+        padding: 50px;
+        margin-bottom: 300px;
+    }
+    .end{
+             height: 100%;
+             width: 100%;
+             bottom: 0;
+    }
+    /* header css */
+.top-navbar{
+    background-color: #00b7a5;
+    position:sticky;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .top-navbar h4{
+    font-size: 15px;
+    font-weight: 700;
+    font-family: cursive;
+    font-style: italic;
+    color: #ffffff;
+  }
+  .top{
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 12000;
+      border-bottom: 2px solid #00b7a5;
+    }
+    .logo{
+      font-size: 25px;
+      color: #33363d;
+    }
+    .navbar {
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background: #ffffff;
+        height: 75px;
+        border-bottom: 2px solid #00b7a5;
+
+    }
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        padding-right: 50px;
+        padding-bottom: 10px;
+    }
+    
+    .nav-links li a {
+        color: #333;
+        text-decoration: none;
+        font-size: 20px;
+        font-family: arial;
+        font-weight: 300;
+        padding-left: 15px;
+    }
+    .nav-links li:hover a{
+      color:#00b7a5;
+    }
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: #333;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        right: 22px;
+    }
+    .menu-toggle:hover{
+      font-size: 30px;
+      color: #00b7a5;
+    }
+    
+    .sidebar {
+        position: fixed;
+        top: 105px;
+        left: -100%;
+        width: 250px;
+        height: 60%;
+        background-color: #ffffff;
+        padding: 20px;
+        transition: left 0.3s ease-in-out;
+        visibility: hidden;
+        z-index: 1;
+        font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0; 
+  }
+  .sidebar ul li a:hover{
+      box-shadow: 0 2px 7px #00897b;
+      /* background-color: #e6e6e7; */
+      color: #00b7a5;
+  }
+  
+  .sidebar ul li a {
+    color: #333;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      left: 200px;
+      top:33px;
+      font-family: arial;
+  }
+  .close-btn {
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 24px;
+      cursor: pointer;
+      position: absolute;
+      left:215px;
+  }
+  .close-btn:hover{
+    font-size: 30px;
+    color: #00b7a5;
+  }
+  .show{
+      display: none;
+      position: absolute;
+      background-color:#ffffff ;
+      min-width: 150px;
+      z-index: 1;
+      padding-left: 15px;
+    
+    }
+    .show li{
+      float: none;
+      list-style: none;
+      width: 200px;
+      height: 50px;
+    }
+    .show li a{
+      color: #333;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+      line-height: 15px;
+      padding-top: 15px;
+      height: 50px;
+    }
+    .cat:hover .show{
+      display: block;
+    }
+    .cat:hover .show a{
+      color: #333;
+    }
+    .cat:hover .show a:hover{
+      color:#00b7a5;
+      /* box-shadow: 0 2px 2px #00b7a5; */
+    }
+    .show li a:hover{
+      box-shadow: 0 2px 7px #00b7a5;
+      /* background-color: #e6e6e75d; */
+    }
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: block;
+        }
+        .nav-links {
+            display: none;
+        } 
+    }
+/* footer css */
+footer {
+    width: 100%;
+    background: #f3f3f3;
+    color:black;
+    padding: 20px 0;
+    font-size: 14px;
+    border-top-right-radius: 200px;
+    font-family: 'Poppins', sans-serif;
+}
+footer h2, footer h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    padding-top: 20px;
+}
+footer a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+footer p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    padding-top: 15px;
+}
+hr{
+color: #00b7a5;
+}
+/* Footer Container */
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+/* Row Layout */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Columns (Ensure 4 columns fit in one row) */
+.col {
+    flex: 0 0 22%;
+    min-width: 200px;
+    margin-bottom: 10px;
+}
+
+/* Column Titles */
+.col h3 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.col h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 3px;
+    /* background: linear-gradient(to right, black,#b3b3b3); */
+}
+
+/* Footer Links */
+.remove {
+    text-decoration: none;
+    color: #808080;
+}
+
+.remove:hover {
+    color:#00b7a5;
+}
+
+/* Newsletter Section */
+.explore form {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #808080;
+    padding-bottom: 5px;
+    width: 250px;
+    padding-top: 20px;
+}
+.explore form input {
+    height:35px;
+    flex: 1;
+    background:white;
+    border: none;
+    outline: none;
+    color: #808080;
+    padding: 5px;
+    position: relative;
+    bottom:10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 2px solid #808080;
+    border-right: none;   
+}
+.explore form input:hover {
+    box-shadow: 0 0 5px #00b7a5;
+}
+#envelope{
+    position: relative;
+    bottom:10px;
+    font-size: 30px;
+    padding-right: 5px;
+}
+.explore input::placeholder {
+    color: #808080;;
+}
+
+.explore form button {
+    height:35px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background:#00b7a5;
+    border: none;
+    cursor: pointer;
+    color:white;
+    position: relative;
+    bottom:10px;
+    border: 2px solid #808080;
+    border-left: none;
+    width: 25px;
+}
+#foot-icon {
+    font-family: cursive;
+    color:#2c2c2c;
+    font-size: 17px;
+}
+
+/* Social Icons */
+.social-icons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    color: #00b7a5;
+}
+
+.social-icons i {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background:white;
+    color:#00b7a5;
+    border:1px solid #00b7a5;
+    font-size: 16px;
+    cursor: pointer;
+}
+.fa-instagram:hover {
+    background-color:#e4405f;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-facebook:hover {
+    background-color:#1877f2;
+    color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-whatsapp:hover {
+   background-color: #25d366;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-x-twitter:hover {
+    background-color: black;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.social-icons a {
+    text-decoration: none;
+}
+/* Legal & Copyright Section */
+.cont {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+}
+
+.down {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.down a {
+    text-decoration: none;
+    color: #808080;
+    font-size: 14px;
+}
+
+.down a:hover {
+    color:#00b7a5;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 12px;
+    color:black;
+    font-weight: 300;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .col {
+        flex: 0 0 48%;
+    }
+}
+
+@media (max-width: 600px) {
+    .col {
+        flex: 0 0 100%;
+        text-align: center;
+    }
+    
+    .down {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Centering Email Input */
+    .explore form {
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    /* Centering Social Icons */
+    .social-icons {
+        justify-content: center;
+    }
+    footer p{
+      padding-right: 30px;
+    }
+    #foot-icon{
+      padding-right: 50px;
+    }
+}
+ h1 {
+      text-align: center;
+      font-style: italic;
+      color: #00b7a5;
+      font-size: 3em;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      text-transform:capitalize;
+      word-spacing: 3px;
+    }
+
+    em {
+      text-align: center;
+      display: block;
+      font-style: italic;
+      font-size: 18px;
+      margin-bottom: 20px;
+      line-height: 22px;
+    }
+
+    video {
+      width: 50%;
+      height: 500px;
+      object-fit: cover;
+      margin: 6px 0;
+      border-radius: 8px;
+      left:25%;
+      position: relative;
+    }
+    p{
+        font-family:'poppins' , 'lora', 'raleway' , 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+        font-size: 18px;
+        font-style:oblique;
+    }
+    .read_more-section {
+  text-align: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.read_more-heading2 {
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  font-style: italic;
+  color: #00b7a5;
+ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+ margin-top:-10px;
+ word-spacing:5PX ;
+}
+
+.read_more-subheading {
+  font-size: 25px;
+  font-style: italic;
+  color: teal;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+margin-top:-6px;
+padding-bottom: 33px;
+}
+
+.read_more-main-image {
+  position: relative;
+  max-width: 66%;
+  margin: 0 auto 30px;
+}
+
+.read_more-main-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.read_more-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.read_more-item {
+  position: relative;
+}
+
+.read_more-item img {
+  width: 100%;
+  height: auto;
+ 
+}
+
+.read_more-label {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: teal;
+  color: white;
+  padding: 5px 12px;
+  font-weight: bold;
+  font-size:14px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.read_more_container {
+  position: relative;
+  width: 100%;
+  /* max-width: 900px; */
+  height: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  /* overflow: hidden; */
+}
+
+.image {
+  position: absolute;
+  border-radius: 8px;
+  overflow: hidden;
+  BORDER:2px solid black;
+}
+
+.image1 {
+  top: 200px;
+  left: 60px;
+  width: 55%;
+  height: 600px;
+  z-index: 4;
+}
+
+.image2 {
+  top: -35px;
+  right: 40px;
+  width: 45%;
+  height: 600px;
+  z-index: 2;
+}
+
+.image3 {
+  bottom: -350px;
+  right: 40px;
+  width: 45%;
+  height: 600px;
+  z-index: 2;
+}
+
+.image img {
+  width: 100%;
+  height: 600px;
+  display: block;
+}
+
+/* Text Section */
+.text-box {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 4;
+}
+.read_more_bottom1{
+  font-size: 20px;
+
+  line-height: 1.4;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color:#333; 
+   position: relative;
+  /* right:50px; */
+  top:600px;
+ 
+}
+
+.read_more_bottom2{
+  font-size: 28px;
+  font-weight: bold;
+ 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: teal; 
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+   position: relative;
+   left:180px;
+   top:600px;
+   /* margin-bottom:-200px; */
+}
+
+.read_more-item img{
+    width: 300px;
+    height: 300px;
+    padding-left: 40px;
+}
+img {
+  transition: transform 0.4s ease-in-out;
+}
+/* Apply zoom effect on all images on hover */
+img:hover {
+  transform: scale(1.05);
+  transition: transform 0.4s ease-in-out;
+}
+main{
+  padding-bottom: 200px;
+}
+@media (max-width: 600px){
+  video{
+    width: 100%;
+    height: 400px;
+    left: 0%;
+  }
+   .image1{
+    height: 200px;
+    width: 200px;
+    left: 30px;
+  } 
+   .image3{
+    left:100px;
+    bottom: 100px;
+    height: 200px;
+    width: 200px;
+    top:340px;
+  }
+  .image2{ 
+    top:50px;
+    height: 200px;
+    width: 200px;
+    left: 100px;
+  }
+  .read_more_bottom2{
+    left:5px;
+    top:600px;
+  }
+  .read_more_bottom1{
+    top:600px;
+  }
+ main{
+    padding-bottom: 100px;
+ }
+ .image img{
+    height: 200px;
+    width: 200px;
+ } 
+ .image2 img{
+   width: 200px;
+ }
+ .read_more-main-image img{
+  height: 300px;
+  width: 275px;
+ }
+ .read_more-item img{
+    padding-left: 0;
+}
+.read_more-main-image{
+  position: relative;
+  right: 40px;
+}
+}
+.logo img{
+    width: 120px;
+    height: 50px;
+}
+  </style>
+</head>
+<body>
+    <div class="up">
+       <header>
+        <div class="top-navbar">
+         <h4> &hearts;&nbsp;Explore The World Of Personalized Gifts</h4>
+         </div>
+          <nav class="navbar">
+              <div class="logo"><img src="images/web-name.jpg" alt="img"></div>
+              <ul class="nav-links" id="nav-links"></ul>
+              <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+          </nav>
+      </header>
+      
+
+      <aside class="sidebar" id="sidebar">
+          <button class="close-btn" id="close-btn">&times;</button>
+          <ul id="sidebar-links"></ul>
+      </aside>
+
+      <ul id="menu-items" style="display: none;">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about-page.html">About</a></li>
+          <li><a href="contact-page.html">Contacts</a></li>
+         <li class="cat"><a href="#">Categories</a>
+                  <ul class="show">
+                      <li><a href="gift-items-page.html">Gifts Item</a></li>
+                      <li><a href="wedding-gift-page.html">Wedding Items</a></li>
+                      <li><a href="calligraphy-items-page.html">Calligraphy Frames</a></li>
+                      <li><a href="occasion-item-page.html">Occasions Items</a></li>
+                      <li><a href="Home-decor-item-page.html">Home Decor Items</a></li>
+                  </ul>
+          </li>
+      </ul>
+  </div>
+ </div>
+
+    </div>
+    <div class="mid">
+       <main>
+        <h1>Customize Pens</h1>
+  <em>
+    Customized pens are more than just writing instruments - they're personalized statements. With the ability to engrave names, initials, or messages, these pens become unique gifts for friends, family, or colleagues. 
+   </em>
+
+  <!-- Replace video source with your own -->
+  <video loop muted autoplay>
+    <source src="images/read-more-13.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+   <p>Whether it's a sleek ballpoint pen or a stylish fountain pen, customization adds a touch of elegance and thoughtfulness. Perfect for special occasions or corporate gifts, customized pens make a lasting impression and serve as a reminder of the thought and effort put into selecting a truly one-of-a-kind item.
+</p>
+  <section class="read_more-section">
+    <h2 class="read_more-heading2">Customize Pens With Different Name and Design</h2>
+    <p class="read_more-subheading">casual and stylish products</p>
+  
+    <div class="read_more-main-image">
+      <img src="images/read-more-13,1.jpg" alt="product_image1">
+      <div class="read_more-label">Classic</div>
+    </div>
+  
+    <div class="read_more-grid">
+      <div class="read_more-item">
+        <img src="images/read-more-13,2.jpg" alt="product_image2">
+        <div class="read_more-label">Pretty</div>
+      </div>
+      <div class="read_more-item">
+        <img src="images/read-more-13,3.jpg" alt="product_image3">
+        <div class="read_more-label">Charming </div>
+      </div>
+      <div class="read_more-item">
+        <img src="images/read-more-13,4.jpg" alt="product_image4">
+        <div class="read_more-label">Stylish </div>
+      </div>
+      <div class="read_more-item">
+        <img src="images/read-more-13,5.jpg" alt="product_image5">
+        <div class="read_more-label">Gorgeous</div>
+      </div>
+    </div>
+  </section>
+     <p>A customized pen is a thoughtful gift that shows you care about the details. With options to personalize with names, logos, or messages, these pens become treasured keepsakes. Whether it's a graduation gift, a birthday present, or a token of appreciation, a customized pen is a practical and meaningful way to show your thoughtfulness.
+
+     </p>
+     <div class="read_more_container">
+    <div class="image image1">
+      <img src="images/read-more-13,6.jpg" alt="product_image1">
+    </div>
+    <div class="image image2">
+      <img src="images/read-more-13,7.jpg" alt="product_image1">
+    </div>
+    <div class="image image3">
+      <img src="images/read-more-13,8.jpg" alt="product_image1">
+    </div>
+
+    <!-- Text Section -->
+    <div class="text-box">
+     <!-- <p class="read_more_bottom1"></p>some beautiful quotes</p> -->
+     <p class="read_more_bottom2">customize Magic Mirror with different different Pictures Design!
+    </p>
+     <p class="read_more_bottom1">Customized pens are also a great way to promote your brand or business. With your logo or message printed on a high-quality pen, you can create a lasting impression on clients and customers.</p>
+     <p class="read_more_bottom1">From elegant fountain pens to durable ballpoint pens, customized pens come in a variety of styles and designs. You can choose from a range of colors, materials,</p>
+     <p class="read_more_bottom1">Customized pens make great awards and recognition gifts. </p>
+  </div>
+       </main>
+    </div>
+    <div class="end">
+        <div class="footer">
+        <footer>
+          <div class="container"> 
+              <div class="row">
+                  <div class="col company">
+                      <p id="foot-icon">Welcome to my blogging website where we share insightful content on your blogs. Stay connected for the latest updates, tips & trends. Follow us on social media & subscribe to our newsletter.</p>
+                  </div>
+                  <div class="col">
+                      <h3>Quick Links</h3>
+                      <p><a class="remove" href="home.html">Home</a></p>
+                      <p><a class="remove" href="blog-page.html">Blog</a></p>
+                      <p><a class="remove" href="topics-page.html">Topics</a></p>
+                      <p><a class="remove" href="latest-post-page.html">Latest Post</a></p>
+                      <p><a class="remove" href="about-page.html">About Us</a></p>
+                      <p><a class="remove" href="contact-page.html">Contact Us</a></p>
+                  </div>
+                  <div class="col">
+                      <h3>Legal Policies</h3>
+                      <p><a class="remove" href="privacy-page.html">Privacy Policy</a></p>
+                      <p><a class="remove" href="terms-condition-page.html">Terms & Conditions</a></p>
+                      <p><a class="remove" href="disclaimer-page.html">Disclaimer</a></p>
+                      <p><a class="remove" href="blog-resources-page.html">Blog Resources</a></p>
+                      <p><a class="remove" href="copyright-page.html">Copyright</a></p>
+                      <p><a class="remove" href="FAQ-page.html">FAQs</a></p>
+                  </div>
+                  <div class="col">
+                      <h3>Product Related</h3>
+                      <p><a class="remove" href="service-page.html">Services</a></p>
+                      <p><a class="remove" href="feature-page.html">Features</a></p>
+                      <p><a class="remove" href="review-page.html">Blog Reviews</a></p>
+                      <p><a class="remove" href="popular-post-page.html">Popular Posts</a></p>
+                      <p><a class="remove" href="freelancer-page.html">Freelancers</a></p>
+                      <p><a class="remove" href="advertise-page.html">Advertise With Us</a></p>
+                  </div>
+                  <div class="col explore">
+                      <h3>Explore More</h3>
+                      <form>
+                          <i class="fa-solid fa-envelope" id="envelope"></i>
+                          <input type="email" placeholder="Enter your email id" required>
+                          <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                      </form>
+                      <div class="social-icons">
+                          <a href="https://www.facebook.com/share/19Fxw6ZmtV/"><i class="fa-brands fa-facebook"></i></a>
+                          <a href="https://www.instagram.com/digital_"><i class="fa-brands fa-instagram"></i></a>
+                          <a href="https://wa.me/917037350523"><i class="fa-brands fa-whatsapp"></i></a>
+                          <a href="https://x.com/digitaldyn81811?t=uFlUqkQbARhyXJQnU3dE1A&s=09"><i class="fa-brands fa-x-twitter"></i></a>
+                      </div>
+                  </div>
+              </div>
+              <div class="cont">
+                  <hr>
+                  <div class="down">
+                      <span><a href="conditon-use-sale.html" class="remove">Conditions of Use & Sale</a></span>
+                      <span><a href="interest-based-ads.html" class="remove">Interest-Based Ads</a></span>
+                  </div>
+                  <p class="copyright">© 2020-2025, BlogWebsite. All rights Reserved</p>
+              </div>
+          </div>
+      </footer>
+          <!-- footer end -->
+
+    </div>
+<script src="final.js"></script>
+</body>
+</html>

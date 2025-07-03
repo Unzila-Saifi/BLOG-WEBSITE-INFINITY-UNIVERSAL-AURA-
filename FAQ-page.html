@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/web-icon.png">
+    <title>fAQ - Infinity Universal Aura</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    /* header css */
+.top-navbar{
+    background-color: #00b7a5;
+    position:sticky;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .top-navbar h4{
+    font-size: 15px;
+    font-weight: 700;
+    font-family: cursive;
+    font-style: italic;
+    color: #ffffff;
+  }
+  .top{
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 12000;
+      border-bottom: 2px solid #00b7a5;
+    }
+    .logo{
+      font-size: 25px;
+      color: #33363d;
+    }
+    .navbar {
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background: #ffffff;
+        height: 70px;
+        border-bottom: 1px solid #00b7a5;
+    }
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        padding-right: 50px;
+        padding-bottom: 10px;
+    }
+    
+    .nav-links li a {
+        color: #333;
+        text-decoration: none;
+        font-size: 20px;
+        font-family: arial;
+        font-weight: 300;
+        padding-left: 15px;
+    }
+    .nav-links li:hover a{
+      color:#00b7a5;
+    }
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: #333;
+        font-size: 24px;
+        cursor: pointer;
+        position: absolute;
+        right: 22px;
+    }
+    .menu-toggle:hover{
+      font-size: 30px;
+      color: #00b7a5;
+    }
+    
+    .sidebar {
+        position: fixed;
+        top: 105px;
+        left: -100%;
+        width: 250px;
+        height: 60%;
+        background-color: #ffffff;
+        padding: 20px;
+        transition: left 0.3s ease-in-out;
+        visibility: hidden;
+        z-index: 1;
+        font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0; 
+  }
+  .sidebar ul li a:hover{
+      box-shadow: 0 2px 7px #00897b;
+      /* background-color: #e6e6e7; */
+      color: #00b7a5;
+  }
+  
+  .sidebar ul li a {
+    color: #333;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      left: 200px;
+      top:33px;
+      font-family: arial;
+  }
+  .close-btn {
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 24px;
+      cursor: pointer;
+      position: absolute;
+      left:215px;
+  }
+  .close-btn:hover{
+    font-size: 30px;
+    color: #00b7a5;
+  }
+  .show{
+      display: none;
+      position: absolute;
+      background-color:#ffffff ;
+      min-width: 150px;
+      z-index: 1;
+      padding-left: 15px;
+     
+    }
+    .show li{
+      float: none;
+      list-style: none;
+      width: 200px;
+      height: 50px;
+    }
+    .show li a{
+      color: #333;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+      line-height: 15px;
+      padding-top: 15px;
+      height: 40px;
+    }
+    .cat:hover .show{
+      display: block;
+    }
+    .cat:hover .show a{
+      color: #333;
+    }
+    .cat:hover .show a:hover{
+      color:#00b7a5;
+      /* box-shadow: 0 2px 2px #00b7a5; */
+    }
+    .show li a:hover{
+      box-shadow: 0 2px 7px #00b7a5;
+      /* background-color: #e6e6e75d; */
+    }
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: block;
+        }
+        .nav-links {
+            display: none;
+        } 
+    }
+/* footer css */
+footer {
+    width: 100%;
+    background: #f3f3f3;
+    color:black;
+    padding: 20px 0;
+    font-size: 14px;
+    border-top-right-radius: 200px;
+    font-family: 'Poppins', sans-serif;
+}
+footer h2, footer h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    padding-top: 20px;
+}
+footer a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+footer p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    padding-top: 30px;
+}
+hr{
+color: #00b7a5;
+}
+/* Footer Container */
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+/* Row Layout */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Columns (Ensure 4 columns fit in one row) */
+.col {
+    flex: 0 0 22%;
+    min-width: 200px;
+    margin-bottom: 10px;
+}
+
+/* Column Titles */
+.col h3 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.col h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 3px;
+    /* background: linear-gradient(to right, black,#b3b3b3); */
+}
+
+/* Footer Links */
+.remove {
+    text-decoration: none;
+    color: #808080;
+}
+
+.remove:hover {
+    color:#00b7a5;
+}
+
+/* Newsletter Section */
+.explore form {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #808080;
+    padding-bottom: 5px;
+    width: 250px;
+    padding-top: 20px;
+}
+.explore form input {
+    height:35px;
+    flex: 1;
+    background:white;
+    border: none;
+    outline: none;
+    color: #808080;
+    padding: 5px;
+    position: relative;
+    bottom:10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 2px solid #808080;
+    border-right: none;   
+}
+.explore form input:hover {
+    box-shadow: 0 0 5px #00b7a5;
+}
+#envelope{
+    position: relative;
+    bottom:10px;
+    font-size: 30px;
+    padding-right: 5px;
+}
+.explore input::placeholder {
+    color: #808080;;
+}
+
+.explore form button {
+    height:35px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background:#00b7a5;
+    border: none;
+    cursor: pointer;
+    color:white;
+    position: relative;
+    bottom:10px;
+    border: 2px solid #808080;
+    border-left: none;
+    width: 25px;
+}
+#foot-icon {
+    font-family: cursive;
+    color:#2c2c2c;
+    font-size: 18px;
+}
+
+/* Social Icons */
+.social-icons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    color: #00b7a5;
+}
+
+.social-icons i {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background:white;
+    color:#00b7a5;
+    border:1px solid #00b7a5;
+    font-size: 16px;
+    cursor: pointer;
+}
+.fa-instagram:hover {
+    background-color:#e4405f;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-facebook:hover {
+    background-color:#1877f2;
+    color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-whatsapp:hover {
+   background-color: #25d366;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-x-twitter:hover {
+    background-color: black;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.social-icons a {
+    text-decoration: none;
+}
+/* Legal & Copyright Section */
+.cont {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+}
+
+.down {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.down a {
+    text-decoration: none;
+    color: #808080;
+    font-size: 14px;
+}
+
+.down a:hover {
+    color:#00b7a5;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 12px;
+    color:black;
+    font-weight: 300;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .col {
+        flex: 0 0 48%;
+    }
+}
+
+@media (max-width: 600px) {
+    .col {
+        flex: 0 0 100%;
+        text-align: center;
+    }
+    
+    .down {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Centering Email Input */
+    .explore form {
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    /* Centering Social Icons */
+    .social-icons {
+        justify-content: center;
+    }
+    #foot-icon{
+        padding-right: 50px;
+    }
+}
+/* faq page css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    background-color: white;
+  }
+  .faq-outer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top:75px;
+    padding-bottom: 40px;
+  }
+.faq-left{
+    width: 46%;
+    height: auto;
+    background-color: whitesmoke;
+    margin: 0px 2%;
+    padding: 10px 2%;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    
+}
+.faq-left h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    color: #000;
+  }
+   
+  .faq-question {
+    width: 100%;
+    background: #00b7a5;
+    border: none;
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  .faq-question.active {
+    background-color: #dff6ff;
+  }
+  .faq-answer {
+    display: none;
+    padding: 10px 15px;
+    background: #eef;
+    margin-top: 5px;
+    border-radius: 6px;
+  }
+.faq-right{
+    width: 46%;
+    background-color: whitesmoke;
+    margin: 0px 2%;
+    border-radius: 10px;
+    padding: 0 15px;
+}
+.faq-right div{
+    font-size: 150px;
+    text-align: center;
+    color: #00b7a5;
+}
+.faq-right h2{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 24px;
+}
+.faq-para{
+    margin-top: 5px;
+    text-align: center;
+    color: #00b7a5;
+}
+.faq-right input{
+    width: 96%;
+    height: 40px;
+    font-size: 100;
+    margin: 20px 2%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+.faq-right button{
+    width: 96%;
+    margin: 0 2%;
+    background: #00b7a5;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 196, 255, 0.4);
+    
+}
+.faq-right h3{
+    margin-top: 30px;
+    font-size: 25px;
+    color: #00b7a5;
+}
+.faq-right p{
+    margin-top: 18px;
+    font-size: 18px;
+}
+@media (max-width: 768px) {
+    .faq-outer{
+        flex-direction: column;
+        width: 100%;
+        padding: 0px 0px;
+    }
+    .faq-left{
+        width: 100%;
+        margin: 0;
+    }
+    .faq-right{
+        width: 100%;
+        margin: 0;
+    }
+}
+
+.up{
+    height: 65px;
+    position: sticky;
+    top:0;
+   z-index: 100000;
+}
+.mid{
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+}
+
+.end{
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+}
+.logo img{
+    width: 120px;
+    height: 50px;
+}
+</style>
+<body>
+    <div class="up">
+        <div class="top">
+            <header>
+              <div class="top-navbar">
+               <h4> &hearts;&nbsp;Explore The World Of Personalized Gifts</h4>
+               </div>
+                <nav class="navbar">
+                    <div class="logo"><img src="images/web-name.jpg" alt="img"></div>
+                    <ul class="nav-links" id="nav-links"></ul>
+                    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+                </nav>
+            </header>
+            
+      
+            <aside class="sidebar" id="sidebar">
+                <button class="close-btn" id="close-btn">&times;</button>
+                <ul id="sidebar-links"></ul>
+            </aside>
+      
+            <ul id="menu-items" style="display: none;">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about-page.html">About</a></li>
+                <li><a href="contact-page.html">Contacts</a></li>
+               <li class="cat"><a href="#">Categories</a>
+                        <ul class="show">
+                            <li><a href="gift-items-page.html">Gifts Item</a></li>
+                            <li><a href="wedding-gift-page.html">Wedding Items</a></li>
+                            <li><a href="calligraphy-items-page.html">Calligraphy Frames</a></li>
+                            <li><a href="occasion-item-page.html">Occasions Items</a></li>
+                            <li><a href="Home-decor-item-page.html">Home Decor Items</a></li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+        <div class="mid">
+            <main>
+                <div class="faq-outer">
+                    <div class="faq-left"> 
+                        <h1>Frequently Ask Question</h1>
+                        <div class="faq-item">
+                            <button class="faq-question">What is Feedback?</button>
+                            <div class="faq-answer">Feedback is...</div>
+                          </div>
+                          <div class="faq-item">
+                            <button class="faq-question">Why should your organization use Feedback Application?</button>
+                            <div class="faq-answer">Using feedback tools helps...</div>
+                          </div>
+                          <div class="faq-item">
+                            <button class="faq-question">How to Contact Us?</button>
+                            <div class="faq-answer">You can contact us by...</div>
+                          </div>
+                          <div class="faq-item">
+                            <button class="faq-question">Trust Level of Feedback Application?</button>
+                            <div class="faq-answer">The app is secure because...</div>
+                          </div>
+                          <div class="faq-item">
+                            <button class="faq-question">How can I contact the author or team?</button>
+                            <div class="faq-answer">The app is secure because...</div>
+                          </div>
+                          <div class="faq-item">
+                            <button class="faq-question">Can I suggest topics for future blog posts?</button>
+                            <div class="faq-answer">The app is secure because...</div>
+                          </div>
+                          <div class="faq-item">
+                            <button class="faq-question">How accurate are the product recommendations and reviews?</button>
+                            <div class="faq-answer">The app is secure because...</div>
+                          </div>
+                          <div class="faq-item">
+                            <button class="faq-question">Who is the target audience?</button>
+                            <div class="faq-answer">The app is secure because...</div>
+                          </div>
+                          <div class="faq-item">
+                            <button class="faq-question">What is this blog about?</button>
+                            <div class="faq-answer">The app is secure because...</div>
+                          </div>
+                          <div class="faq-item">
+                            <button class="faq-question">Who writes the content on this blog?</button>
+                            <div class="faq-answer">The app is secure because...</div>
+                          </div>
+                          <div class="faq-item">
+                            <button class="faq-question">Can I suggest topics for future blog posts?</button>
+                            <div class="faq-answer">The app is secure because...</div>
+                          </div>
+                          <div class="faq-item">
+                            <button class="faq-question">Where can I buy the products mentioned on the blog?</button>
+                            <div class="faq-answer">The app is secure because...</div>
+                          </div>
+                          <div class="faq-item">
+                            <button class="faq-question">Can I share your blog posts on social media or my own site?</button>
+                            <div class="faq-answer">The app is secure because...</div>
+                          </div>
+                          <div class="faq-item">
+                            <button class="faq-question">What if I make a mistake in customization?</button>
+                            <div class="faq-answer">The app is secure because...</div>
+                          </div> <div class="faq-item">
+                            <button class="faq-question">How does the product customization process work?</button>
+                            <div class="faq-answer">The app is secure because...</div>
+                          </div>
+                          <div class="faq-item">
+                            <button class="faq-question">Can I save a customized product and come back later?</button>
+                            <div class="faq-answer">The app is secure because...</div>
+                          </div>
+                    </div>
+                    <div class="faq-right">
+                        <div>&#63;</div>
+                        <h2>Any Question?</h2>
+                        <p class="faq-para">You can ask anything you want to know about Feedback.</p>
+                  <form class="question-form" action="submit_question.php" method="post">
+                    <input type="text" placeholder="Enter Here" required />
+                    <button type="submit">Sent</button>
+                  </form>
+                  <h3>What is an FAQ Page?</h3>
+                  <p>An FAQ (Frequently Asked Questions) page is a dedicated space designed to address the most common topics, concerns, or areas of curiosity that visitors might have. Instead of answering the same questions repeatedly or leaving users unsure, this page provides clear, concise, and easy-to-read explanations.</p>
+                  <h3>Why This FAQ Page Exists</h3>
+                  <p>This page exists to help guide you through the essentials of our custom product blog. Whether you're a first-time visitor or a long-time reader, the FAQ section serves as a roadmap—clarifying what we do, what you can expect, and how to make the most of your experience here. It helps streamline your journey, so you can find answers quickly without needing to reach out or search through the entire site.</p>
+                  <h3>How the FAQ Supports Your Experience</h3>
+                  <p>Customization can be exciting, but also a bit overwhelming if you’re new to it. That’s why this section focuses on simplifying things. It explains how the blog works, what kind of content we publish, who it’s for, and how to get involved. From learning about creative techniques to understanding how to share your own work, this FAQ page supports both learning and participation.</p>
+                  <h3>Connecting with the Community</h3>
+                  <p>One of the reasons we include this page is to foster a sense of connection. When you understand how things work and what’s possible, you’re more empowered to create, share, and engage. This FAQ reflects the most common points of interest from our readers and aims to build confidence in navigating the world of custom products.</p>
+                    </div>
+                </div>
+                </main>
+            
+           </div>
+    <div class="end">
+        <div class="footer">
+            <footer>
+              <div class="container"> 
+                  <div class="row">
+                      <div class="col company">
+                          <p id="foot-icon">Welcome to my blogging website where we share insightful content on your blogs. Stay connected for the latest updates, tips & trends. Follow us on social media & subscribe to our newsletter.</p>
+                      </div>
+                      <div class="col">
+                          <h3>Quick Links</h3>
+                          <p><a class="remove" href="home.html">Home</a></p>
+                          <p><a class="remove" href="blog-page.html">Blog</a></p>
+                          <p><a class="remove" href="topics-page.html">Topics</a></p>
+                          <p><a class="remove" href="latest-post-page.html">Latest Post</a></p>
+                          <p><a class="remove" href="about-page.html">About Us</a></p>
+                          <p><a class="remove" href="contact-page.html">Contact Us</a></p>
+                      </div>
+                      <div class="col">
+                          <h3>Legal Policies</h3>
+                          <p><a class="remove" href="privacy-page.html">Privacy Policy</a></p>
+                          <p><a class="remove" href="terms-condition-page.html">Terms & Conditions</a></p>
+                          <p><a class="remove" href="disclaimer-page.html">Disclaimer</a></p>
+                          <p><a class="remove" href="blog-resources-page.html">Blog Resources</a></p>
+                          <p><a class="remove" href="copyright-page.html">Copyright</a></p>
+                          <p><a class="remove" href="FAQ-page.html">FAQs</a></p>
+                      </div>
+                      <div class="col">
+                          <h3>Product Related</h3>
+                          <p><a class="remove" href="service-page.html">Services</a></p>
+                          <p><a class="remove" href="feature-page.html">Features</a></p>
+                          <p><a class="remove" href="review-page.html">Blog Reviews</a></p>
+                          <p><a class="remove" href="popular-post-page.html">Popular Posts</a></p>
+                          <p><a class="remove" href="freelancer-page.html">Freelancers</a></p>
+                          <p><a class="remove" href="advertise-page.html">Advertise With Us</a></p>
+                      </div>
+                      <div class="col explore">
+                          <h3>Explore More</h3>
+                          <form>
+                              <i class="fa-solid fa-envelope" id="envelope"></i>
+                              <input type="email" placeholder="Enter your email id" required>
+                              <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                          </form>
+                          <div class="social-icons">
+                              <a href="https://www.facebook.com/share/19Fxw6ZmtV/"><i class="fa-brands fa-facebook"></i></a>
+                              <a href="https://www.instagram.com/digital_"><i class="fa-brands fa-instagram"></i></a>
+                              <a href="https://wa.me/917037350523"><i class="fa-brands fa-whatsapp"></i></a>
+                              <a href="https://x.com/digitaldyn81811?t=uFlUqkQbARhyXJQnU3dE1A&s=09"><i class="fa-brands fa-x-twitter"></i></a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="cont">
+                      <hr>
+                      <div class="down">
+                          <span><a href="conditon-use-sale.html" class="remove">Conditions of Use & Sale</a></span>
+                          <span><a href="interest-based-ads.html" class="remove">Interest-Based Ads</a></span>
+                      </div>
+                      <p class="copyright">© 2020-2025, BlogWebsite. All rights Reserved</p>
+                  </div>
+              </div>
+          </footer>
+    </div>
+   <script src="final.js"></script>
+</body>
+</html>

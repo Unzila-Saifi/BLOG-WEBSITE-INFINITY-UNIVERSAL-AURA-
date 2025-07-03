@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/web-icon.png">
+    <title>Occasions Items - Infinity Universal Aura</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+<style>
+    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+/* header */
+/* Fixed Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #00695c;
+    z-index: 1000;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+.top-navbar{
+  background-color: #00b7a5;
+  position:sticky;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.top-navbar h4{
+  font-size: 15px;
+  font-weight: 700;
+  font-family: cursive;
+  font-style: italic;
+  color: #ffffff;
+}
+
+/* Navbar Styling */
+.logo{
+    font-size: 25px;
+    color: #33363d;
+  }
+  .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: #ffffff;
+      height: 65px;
+      border-bottom: 2px solid #00b7a5;
+  }
+  .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      padding-right: 50px;
+  }
+  
+  .nav-links li a {
+      color: #333;
+      text-decoration: none;
+      font-size:  .9375em;
+      font-family: arial;
+      font-weight: 300;
+      padding-left: 15px;
+      padding-top: 20px;
+  }
+  .nav-links li:hover a{
+    color:#00b7a5;
+  }
+  .nav-2{
+    display: flex;
+    background-color: #00b7a5;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+  
+  .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 24px;
+      cursor: pointer;
+      position: absolute;
+      right: 22px;
+  }
+  .menu-toggle:hover{
+    font-size: 30px;
+    color: #00b7a5;
+  }
+  
+  .sidebar {
+      position: fixed;
+      top: 105px;
+      left: -100%;
+      width: 250px;
+      height: 60%;
+      background-color: #ffffff;
+      padding: 20px;
+      transition: left 0.3s ease-in-out;
+      visibility: hidden;
+      z-index: 1000;
+      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  .sidebar ul {
+    list-style: none;
+    padding: 0; 
+}
+.sidebar ul li a:hover{
+    box-shadow: 0 2px 7px #00897b;
+    /* background-color: #e6e6e7; */
+    color: #00b7a5;
+}
+
+.sidebar ul li a {
+  color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    left: 200px;
+    top:33px;
+    font-family: arial;
+}
+.close-btn {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    left:215px;
+}
+.close-btn:hover{
+  font-size: 30px;
+  color: #00b7a5;
+}
+.show{
+    display: none;
+    position: absolute;
+    background-color:#ffffff ;
+    min-width: 150px;
+    z-index: 1;
+    padding-left: 15px;
+   width: 200px;
+  }
+  .show li{
+    float: none;
+    list-style: none;
+  }
+  .show li a{
+    color: #333;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    line-height: 14px;
+    padding-bottom: 15px;
+  }
+  .cat:hover .show{
+    display: block;
+  }
+  .cat:hover .show a{
+    color: #333;
+  }
+  .cat:hover .show a:hover{
+    color:#00b7a5;
+  }
+  .show li a:hover{
+    box-shadow: 0 2px 7px #00897b;
+    /* background-color: #e6e6e75d; */
+  }
+  @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+    } 
+}
+/* Body Styling */
+.page{
+    background-color: #ffffffc4;
+}
+
+/* Heading & Paragraph */
+#top{
+    text-transform: capitalize;
+    font-size:50px;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    background-color:#00b7a5;
+    border-radius: 0 0 100px 0;
+    text-align: center;
+    color:white;
+    padding: 120px 0 40px 0;
+    height: 240px;
+    font-family: Ember;
+}
+
+#parag {
+    padding:20px 50px 30px 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    /* color: #616569; */
+    color: #333;
+    max-width: 90%; /* proper width in all browsers */
+}
+
+/* Container - Responsive Grid */
+.cat-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto adjust */
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Card Styling */
+.wedding-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    border:2px solid #00b7a5;
+    box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.2), 4px 6px 10px rgba(0, 0, 0, 0.15);
+    height: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wedding-card:hover {
+    transform: scale(1.05);
+    box-shadow: 6px 8px 14px rgba(0, 0, 0, 0.3), 6px 8px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Container */
+.cat-image-container{
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cat-image-container img {
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Card Text */
+.title{
+    font-size: 18px;
+    padding: 10px;
+    /* color:#00b7a5; */
+    color: #333333;
+}
+
+.pa{
+    font-size: 14px;
+    padding: 0 10px 10px;
+    /* color: #616569; */
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .cat-container {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .cat-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+}
+
+@media (max-width: 480px) {
+    .cat-container {
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        padding: 55px;
+    }
+}
+/* footer */
+footer {
+    width: 100%;
+    background-color: #f5f5f5;
+    color:black;
+    padding: 20px 0;
+    font-size: 14px;
+    border-top-right-radius: 200px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+}
+footer h2, footer h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    padding-top: 50px;
+}
+footer a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+footer p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 300;
+    padding-top: 15px;
+}
+/* Footer Container */
+.container {
+    width: 85%;
+    margin: auto;
+    /* height: 100%; */
+}
+
+/* Row Layout */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Columns (Ensure 4 columns fit in one row) */
+.col {
+    flex: 0 0 22%;
+    min-width: 200px;
+    margin-bottom: 10px;
+}
+
+/* Column Titles */
+.col h3 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.col h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 3px;
+    /* background: linear-gradient(to right, black,#b3b3b3); */
+}
+
+/* Footer Links */
+.remove {
+    text-decoration: none;
+    color: #808080;
+    line-height: 25px;
+}
+
+.remove:hover {
+    color:#00b7a5;
+}
+
+/* Newsletter Section */
+.explore form {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #808080;
+    padding-bottom: 5px;
+    width: 250px;
+}
+.explore form input {
+    height:30px;
+    flex: 1;
+    background:white;
+    border: none;
+    outline: none;
+    color: #808080;
+    padding: 5px;
+    position: relative;
+    bottom:10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 2px solid #808080;
+    border-right: none; 
+    margin-top: 10px; 
+}
+.explore form input:hover {
+    box-shadow: 0 0 5px #00b7a5;
+}
+#envelope{
+    position: relative;
+    bottom:10px;
+    font-size: 30px;
+    padding-right: 5px;
+    margin-top: 10px; 
+}
+.explore input::placeholder {
+    color: #808080;;
+}
+
+.explore form button {
+    height:30px;
+    width:25px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background:#00b7a5;
+    border: none;
+    cursor: pointer;
+    color:white;
+    position: relative;
+    bottom:10px;
+    border: 2px solid #808080;
+    border-left: none;
+    margin-top: 10px; 
+    
+}
+#foot-icon {
+    font-family: cursive;
+    color:#2c2c2c;
+}
+
+/* Social Icons */
+.social-icons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.social-icons i {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background:white;
+    color:#00b7a5;
+    border:1px solid #00b7a5;
+    font-size: 16px;
+    cursor: pointer;
+}
+.fa-instagram:hover {
+    background-color:#e4405f;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-facebook:hover {
+    background-color:#1877f2;
+    color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-whatsapp:hover {
+   background-color: #25d366;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-x-twitter:hover {
+    background-color: black;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.social-icons a {
+    text-decoration: none;
+}
+/* Legal & Copyright Section */
+.cont {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+}
+
+.down {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.down a {
+    text-decoration: none;
+    color: #808080;
+    font-size: 14px;
+}
+
+.down a:hover {
+    color:#00b7a5;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 12px;
+    color:black;
+    font-weight: 300;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .col {
+        flex: 0 0 48%;
+    }
+}
+
+@media (max-width: 600px) {
+    .col {
+        flex: 0 0 100%;
+        text-align: center;
+    }
+    
+    .down {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Centering Email Input */
+    .explore form {
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    /* Centering Social Icons */
+    .social-icons {
+        justify-content: center;
+    }
+    footer p{
+        font-size: 15px;
+        padding-right: 20px;
+    }
+    #foot-icon{
+        padding-right: 50px;
+    }
+}
+.logo img {
+    width: 120px;
+    height: 50px;
+}
+</style>
+<body class="page">
+
+        <!-- Header -->
+        <header>
+            <div class="top-navbar">
+                <h4> &hearts;&nbsp;Explore The World Of Personalized Gifts</h4>
+                </div>
+            <nav class="navbar">
+                <div class="logo"><img src="images/web-name.jpg" alt="img">
+                </div>
+                <ul class="nav-links" id="nav-links"></ul>
+                <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+            </nav>
+        </header>
+    
+        <!-- Sidebar Menu -->
+        <aside class="sidebar" id="sidebar">
+            <button class="close-btn" id="close-btn">&times;</button>
+            <ul id="sidebar-links"></ul>
+        </aside>
+    
+        <!-- Hidden Menu Items (Used for both Navbar & Sidebar) -->
+        <ul id="menu-items" style="display: none;">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about-page.html">About</a></li>
+            <li><a href="contact-page.html">Contacts</a></li>
+            <li class="cat"><a href="#">Categories</a>
+                <ul class="show">
+                    <li><a href="gift-items-page.html">Gifts Item</a></li>
+                    <li><a href="wedding-gift-page.html">Wedding Items</a></li>
+                    <li><a href="calligraphy-items-page.html">Calligraphy Frames</a></li>
+                    <li><a href="occasion-item-page.html">Occasions Items</a></li>
+                    <li><a href="Home-decor-item-page.html">Home Decor Items</a></li>
+                </ul>
+            </li>
+        </ul>
+        <main>
+        <h1 id="top">Occasions Items</h1>
+     <p id="parag">Occasion items are special products used to celebrate events like birthdays, weddings, festivals, and anniversaries. They include decorations, gifts, and accessories that add joy, beauty, and meaning to the celebration.</p>
+    <div class=" cat-container">
+       <!-- cards -->
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion17.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Resin Zigzag Round Table Top</h3>
+            <p class="pa">it’s a perfect blend of art and functionality Ideal for modern interiors</p>
+        </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion18.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Hamper</h3>
+            <p  class="pa">it’s a bundle of joy! Perfect for birthdays , anniversaries , or festive celebrations</p>
+            </p>
+        </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion19.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Wedding Embroidery Hoop</h3>      
+            <p  class="pa">A wedding embroidery hoop is a timeless keepsake,beautifully stitched with love.these hoops make charming gifts</p>   
+        </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion20.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Love Agreement</h3>
+            <p  class="pa">A Promise of Forever In this love agreement, we promise to cherish, respect</p>
+        </div>
+
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion5.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Ring Album</h3>
+            <p  class="pa">This ring-bound album features a heartfelt collage of memories, celebrating friendship with photos</p>
+            </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion6.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Photo Diary</h3>
+            <p  class="pa">Every picture tells a story a moment of joy, adventure , or quiet reflection From sunrise to midnight skies</p>
+        </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion7.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Poloroid Photo</h3>
+            <p  class="pa">Capture the moment, freeze the memories!A Polaroid isn’t just a photo—it’s nostalgia in your hands</p>
+        </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion8.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Couple Bracelate</h3>
+            <p  class="pa">it’s a name, a special date,or a meaningful word, wear your story on your wrist! Perfect for gifts too! </p>
+        </div>
+
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion9.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Butterfly Pendant</h3>
+            <p class="pa">A perfect blend of elegance and charm, this piece adds a touch of glamour to any outfit</p>
+        </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion10.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Pen Stand</h3>
+            <p  class="pa">Elevate your desk with the Passion Penstand with Clock A perfect blend of style & utility</p>
+        </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion11.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Google Envelop</h3>
+            <p  class="pa">This Google-themed card creatively expresses love for a mother. Featuring a Best mom in the world search result</p>
+        </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion12.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Nikah Frame</h3>
+            <p  class="pa">Bound by love, framed for a lifetime—our Nikah Nama, a cherished memory of our beautiful beginning </p>
+         </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion13.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Heart-shaped Nikah thumb Impression</h3>
+            <p  class="pa">Two thumbs, one love Create a unique keepsake with your customized couple thumb impression frame. </p>
+        </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion14.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Wallet With Keychain And Pen</h3>
+            <p  class="pa">A customized wallet epitomizes the art of personal style, merging functionality with elegance </p>
+            </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion15.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Google Photo Frame</h3>
+            <p  class="pa">A customized frame gift captures precious memories beautifully, making every moment timeless and heartfelt.</p>
+        </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion16.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Eidi Cards</h3>
+            <p  class="pa">Eidi cards add joy to Eid, beautiful, and memorable with creative designs, festive themes</p>
+        </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion4.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Spotify Frame</h3>
+            <p  class="pa">Customize your own Spotify frame and make your music memories even more special Add your favorite song</p>
+        </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion3.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Cup</h3>
+            <p  class="pa">Personalize your cup with a mix of fun emojis to match your mood</p>
+        </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion2.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Magic Mirror</h3>
+            <p  class="pa">it's a futuristic, interactive display! From showing the weather to daily schedules</p>
+        </div>
+        <div class="wedding-card">
+            <div class="cat-image-container">
+                <img src="images/occasion1.jpg" alt="Card Image">
+            </div>
+            <h3 class="title">Surah Al-Baqarah Calligraphy frame </h3>
+            <p  class="pa">Surah Al-Baqarah in Arabic calligraphy, a powerful Quranic verse seeking strength and mercy from Allah</p>
+            </div>
+        <!--  -->
+    </div>
+    </main>
+    <footer>
+        <div class="container"> 
+            <div class="row">
+                <div class="col company">
+                    <p id="foot-icon">Welcome to my blogging website where we share insightful content on your blogs. Stay connected for the latest updates, tips & trends. Follow us on social media & subscribe to our newsletter.</p>
+                </div>
+                <div class="col">
+                     <h3>Quick Links</h3>
+                    <p><a class="remove" href="home.html">Home</a></p>
+                    <p><a class="remove" href="blog-page.html">Blog</a></p>
+                    <p><a class="remove" href="topics-page.html">Topics</a></p>
+                    <p><a class="remove" href="latest-post-page.html">Latest Post</a></p>
+                    <p><a class="remove" href="about-page.html">About Us</a></p>
+                    <p><a class="remove" href="contact-page.html">Contact Us</a></p>
+                </div>
+                <div class="col">
+                    <h3>Legal Policies</h3>
+                    <p><a class="remove" href="privacy-page.html">Privacy Policy</a></p>
+                    <p><a class="remove" href="terms-condition-page.html">Terms & Conditions</a></p>
+                    <p><a class="remove" href="disclaimer-page.html">Disclaimer</a></p>
+                    <p><a class="remove" href="blog-resources-page.html">Blog Resources</a></p>
+                    <p><a class="remove" href="copyright-page.html">Copyright</a></p>
+                    <p><a class="remove" href="FAQ-page.html">FAQs</a></p>
+                </div>
+                <div class="col">
+                    <h3>Product Related</h3>
+                    <p><a class="remove" href="service-page.html">Services</a></p>
+                    <p><a class="remove" href="feature-page.html">Features</a></p>
+                    <p><a class="remove" href="review-page.html">Blog Reviews</a></p>
+                    <p><a class="remove" href="popular-post-page.html">Popular Posts</a></p>
+                    <p><a class="remove" href="freelancer-page.html">Freelancers</a></p>
+                    <p><a class="remove" href="advertise-page.html">Advertise With Us</a></p>
+                </div>
+                <div class="col explore">
+                    <h3>Explore More</h3>
+                    <form>
+                        <i class="fa-solid fa-envelope" id="envelope"></i>
+                        <input type="email" placeholder="Enter your email id" required>
+                        <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                    </form>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/19Fxw6ZmtV/"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/digital_"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/917037350523"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://x.com/digitaldyn81811?t=uFlUqkQbARhyXJQnU3dE1A&s=09"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="cont">
+                <hr>
+                <div class="down">
+                    <span><a href="conditon-use-sale.html" class="remove">Conditions of Use & Sale</a></span>
+                    <span><a href="interest-based-ads.html" class="remove">Interest-Based Ads</a></span>
+                </div>
+                <p class="copyright">© 2020-2025, BlogWebsite. All rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+    <script src="final.js"></script>
+</body>
+</html>

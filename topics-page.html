@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/web-icon.png">
+    <title>Topics - Infinity Universal Aura</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>     
+/* header */
+/* Fixed Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #00695c;
+    z-index: 1000;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Navbar Styling */
+.logo{
+    font-size: 25px;
+    color: #33363d;
+  }
+  .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: #ffffff;
+      height: 75px;
+      border-bottom: 2px solid #00b7a5;
+  }
+  .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      padding-right: 50px;
+      padding-top: 10px;
+  }
+  
+  .nav-links li a {
+      color: #333;
+      text-decoration: none;
+      font-size:  20px;
+      font-family: arial;
+      font-weight: 300;
+      padding-left: 15px;
+      padding-top: 5px;
+      
+  }
+  .nav-links li:hover a{
+    color:#00b7a5;
+  }
+  .nav-2{
+    display: flex;
+    background-color: #00b7a5;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+  
+  .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 24px;
+      cursor: pointer;
+      position: absolute;
+      right: 22px;
+  }
+  .menu-toggle:hover{
+    font-size: 30px;
+    color: #00b7a5;
+  }
+  
+  .sidebar {
+      position: fixed;
+      top: 105px;
+      left: -100%;
+      width: 250px;
+      height: 350px;
+      background-color: #ffffff;
+      padding: 20px;
+      transition: left 0.3s ease-in-out;
+      visibility: hidden;
+      z-index: 1000;
+      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  .sidebar ul {
+    list-style: none;
+    padding: 0; 
+}
+.sidebar ul li a:hover{
+    box-shadow: 0 2px 7px #00897b;
+    /* background-color: #e6e6e7; */
+    color: #00b7a5;
+}
+
+.sidebar ul li a {
+  color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    left: 200px;
+    top:33px;
+    font-family: arial;
+}
+.close-btn {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    left:215px;
+}
+.close-btn:hover{
+  font-size: 30px;
+  color: #00b7a5;
+}
+.show{
+    display: none;
+    position: absolute;
+    background-color:#ffffff ;
+    /* min-width: 150px; */
+    z-index: 1;
+    padding-left: 15px;
+  width: 200px;
+  }
+  .show li{
+    float: none;
+    list-style: none;
+  }
+  .show li a{
+    color: #333;
+    text-decoration: none;
+    display: block;
+    font-size:  .9330em;
+    line-height: 35px;
+    padding-bottom: 15px;
+  }
+  .cat:hover .show{
+    display: block;
+  }
+  .cat:hover .show a{
+    color: #333;
+  }
+  .cat:hover .show a:hover{
+    color:#00b7a5;
+  }
+  main{
+    margin-top: 40px;
+  }
+  .show li a:hover{
+    box-shadow: 0 2px 7px #00897b;
+    /* background-color: #e6e6e75d; */
+  }
+  @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+    } 
+}
+.top-navbar{
+    background-color: #00b7a5;
+    position: sticky;
+    width: 100%;
+    height:40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.top-navbar h4 {
+    font-size: 15px;
+    font-weight: 700;
+    font-family: cursive;
+    font-style: italic;
+    color:white;
+}
+footer {
+    width: 100%;
+    background: #f5f5f5;
+    color:black;
+    padding: 20px 0;
+    font-size: 14px;
+    border-top-right-radius: 200px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+}
+footer h2, footer h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding-top: 20px;
+    font-size: 20px;
+}
+footer a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+footer p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+}
+/* Footer Container */
+.container {
+    width: 85%;
+    margin: auto;
+    /* height: 100%; */
+}
+
+/* Row Layout */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+
+/* Columns (Ensure 4 columns fit in one row) */
+.col {
+    flex: 0 0 22%;
+    min-width: 200px;
+    margin-bottom: 10px;
+   
+}
+
+/* Column Titles */
+.col h3 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+
+}
+
+.col h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 3px;
+    /* background: linear-gradient(to right, black,#b3b3b3); */
+}
+
+/* Footer Links */
+.remove {
+    text-decoration: none;
+    color: #808080;
+    line-height: 30px;
+}
+
+.remove:hover {
+    color:#00b7a5;
+}
+
+/* Newsletter Section */
+.explore form {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #808080;
+    padding-bottom: 5px;
+    width: 250px;
+}
+.explore form input {
+    height:30px;
+    flex: 1;
+    background:white;
+    border: none;
+    outline: none;
+    color: #808080;
+    padding: 5px;
+    position: relative;
+    bottom:10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 2px solid #808080;
+    border-right: none; 
+    margin-top: 10px; 
+}
+.explore form input:hover {
+    box-shadow: 0 0 5px #00b7a5;
+}
+#envelope{
+    position: relative;
+    bottom:10px;
+    font-size: 30px;
+    padding-right: 5px;
+    margin-top: 10px; 
+}
+.explore input::placeholder {
+    color: #808080;;
+}
+
+.explore form button {
+    height:30px;
+    width:25px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background:#00b7a5;
+    border: none;
+    cursor: pointer;
+    color:white;
+    position: relative;
+    bottom:10px;
+    border: 2px solid #808080;
+    border-left: none;
+    margin-top: 10px; 
+    
+}
+#foot-icon {
+    font-family: cursive;
+    color:#2c2c2c;
+    font-size: 16px;
+}
+
+/* Social Icons */
+.social-icons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.social-icons i {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background:white;
+    color:#00b7a5;
+    border:1px solid #00b7a5;
+    font-size: 16px;
+    cursor: pointer;
+}
+.fa-instagram:hover {
+    background-color:#e4405f;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-facebook:hover {
+    background-color:#1877f2;
+    color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-whatsapp:hover {
+   background-color: #25d366;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-x-twitter:hover {
+    background-color: black;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.social-icons a {
+    text-decoration: none;
+}
+/* Legal & Copyright Section */
+.cont {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+}
+
+.down {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.down a {
+    text-decoration: none;
+    color: #808080;
+    font-size: 14px;
+}
+
+.down a:hover {
+    color:#00b7a5;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 12px;
+    color:black;
+    font-weight: 300;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .col {
+        flex: 0 0 48%;
+    }
+}
+
+@media (max-width: 600px) {
+    .col {
+        flex: 0 0 100%;
+        text-align: center;
+    }
+    
+    .down {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Centering Email Input */
+    .explore form {
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    /* Centering Social Icons */
+    .social-icons {
+        justify-content: center;
+    }
+    #foot-icon{
+        padding-right: 50px;
+    }
+}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f9f9f9;
+            justify-content: center;
+            height: 100vh;
+        }
+        .topic-container {
+            width: 90%;
+            margin: 0px 5%;
+        }
+        .topic-container h1{
+            font-family: cursive;
+            font-size: 70px;
+            text-align: center;
+            margin-top: 70px;
+           text-shadow: 2px 2px 2px  #00b7a5 ;
+           padding-top: 30px;
+        }
+        .topic {
+            display: flex;
+            /* align-items: center; */
+            background: white;
+            padding: 15px;
+            border-radius: 50px;
+            margin: 50px 0;
+            position: relative;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+            border: 2px solid #00b7a5;
+        }
+        .topic::before {
+            content: attr(data-number);
+             position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color:#00b7a5;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%; 
+        }
+        
+
+        .topic-content {
+            margin-left: 70px;
+        }
+       .topic-content h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+       .topic-content p {
+            font-size: 14px;
+            color: #555;
+            line-height: 25px;
+            font-size: 16px;
+        }
+        .topic-container a{
+            text-decoration: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .topic {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+            .topic::before {
+                left: 50%;
+                top: -20px;
+                transform: translateX(-50%);
+            }
+            .topic-content {
+                margin-left: 0;
+                margin-top: 30px;
+            }
+        }
+        .logo img{
+    width: 120px;
+    height: 50px;
+}  
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="top-navbar">
+            <h4>&hearts;&nbsp; Explore The World Of Personalized Gifts</h4>
+        </div>
+        <nav class="navbar">
+            <div class="logo"><img src="images/web-name.jpg" alt="img"></div>
+            <ul class="nav-links" id="nav-links"></ul>
+            <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+        </nav>
+    </header>
+
+    <!-- Sidebar Menu -->
+    <aside class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <ul id="sidebar-links"></ul>
+    </aside>
+
+    <!-- Hidden Menu Items (Used for both Navbar & Sidebar) -->
+    <ul id="menu-items" style="display: none;">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about-page.html">About</a></li>
+        <li><a href="contact-page.html">Contacts</a></li>
+        <li class="cat"><a href="#">Categories</a>
+            <ul class="show">
+                <li><a href="gift-items-page.html">Gifts Item</a></li>
+                <li><a href="wedding-gift-page.html">Wedding Items</a></li>
+                <li><a href="calligraphy-items-page.html">Calligraphy Frames</a></li>
+                <li><a href="occasion-item-page.html">Ocassions Items</a></li>
+                <li><a href="Home-decor-item-page.html">Home Decor Items</a></li>
+            </ul>
+        </li>
+    </ul>
+    <main>
+    <div class="topic-container">
+        <h1>Topics</h1>
+       <a href="read-more-3.html"> <div class="topic" data-number="01">
+            <div class="topic-content">
+                <h2>Photo Frames</h2>
+                <p>Photo frames enhance home décor and preserve cherished memories. Available in wood, metal, and acrylic, they complement any interior. Personalized frames with names or messages add sentimental value. Digital frames display multiple photos in a slideshow, making them a modern choice. Ideal for gifts, they celebrate special moments beautifully.  
+                </p>
+            </div>
+        </div></a>
+      <a href="read-more-2.html">  <div class="topic" data-number="02">
+            <div class="topic-content">
+                <h2>Men's Wallets</h2>
+                <p>Men’s wallets are essential accessories that combine style and functionality. Made from leather, fabric, or synthetic materials, they store cash, cards, and IDs securely. Slim, bi-fold, and tri-fold designs cater to different preferences. Personalized wallets with engravings or initials add a unique touch, making them perfect gifts for men. 
+                </p>
+            </div>
+        </div></a>
+      <a href="read-more-1.html">  <div class="topic" data-number="03">
+            <div class="topic-content">
+                <h2>Nikah Certificate and Booklets</h2>
+                <p>Nikah certificates and booklets serve as official records of Islamic marriages. They document essential details like the couple’s names, wedding date, and witnesses. Beautifully designed booklets with Islamic calligraphy and elegant covers enhance their significance. Personalized Nikah booklets make cherished keepsakes for newlyweds, symbolizing the beginning of their marital journey.  
+                </p>
+            </div>
+        </div></a>
+       <a href="read-more-4.html"> <div class="topic" data-number="04">
+            <div class="topic-content">
+                <h2>Thumb Impression Frames</h2>
+                <p>Thumb impression frames create unique artwork using fingerprints. They are popular for wedding and baby keepsakes, preserving memories creatively. Couples or families stamp their thumbprints onto a canvas, forming heart shapes or trees. Personalized with names and dates, these frames make sentimental gifts, symbolizing unity and lifelong connections.  
+                </p>
+            </div>
+        </div></a>
+      <a href="read-more-5.html">  <div class="topic" data-number="05">
+            <div class="topic-content">
+                <h2>Couple Name Frames</h2>
+                <p>Couple name frames elegantly display partners’ names in artistic designs. Crafted from wood, acrylic, or LED-lit materials, they add a romantic touch to home décor. Custom fonts, heart shapes, and decorative elements enhance their appeal. Ideal for anniversaries and weddings, they symbolize love and togetherness in a beautiful way.  
+                </p>
+            </div>
+        </div></a>
+       <a href="read-more-6.html"> <div class="topic" data-number="06">
+            <div class="topic-content">
+                <h2>Neon Lights</h2>
+                <p>Neon lights are vibrant décor pieces that add a modern and aesthetic touch to any space. Available in customizable designs, they illuminate names, quotes, or symbols with colorful LED lighting. Perfect for bedrooms, cafés, and parties, neon lights create a stylish ambiance while reflecting personal style and creativity.  
+                </p>
+            </div>
+        </div></a>
+        <a href="read-more-7.html"><div class="topic" data-number="07">
+            <div class="topic-content">
+                <h2> Spotify Frames</h2>
+                <p>Spotify frames feature scannable Spotify codes printed on acrylic or glass, linking to a favorite song or playlist. Personalized with photos, they make sentimental gifts for music lovers. These decorative frames combine technology with aesthetics, offering a creative way to relive special moments through music and stylish visual art.  </p>
+            </div>
+        </div></a>
+      <a href="read-more-8.html">  <div class="topic" data-number="08">
+            <div class="topic-content">
+                <h2>Rings</h2>
+                <p>Rings symbolize love, commitment, and personal style. Crafted from gold, silver, platinum, or stainless steel, they come in various designs, including engraved, gemstone, and birthstone rings. Couple rings, promise rings, and fashion rings hold sentimental value. A perfect gift, rings add elegance and significance to special occasions.  
+                </p>
+            </div>
+        </div></a>
+      <a href="read-more-9.html">  <div class="topic" data-number="09">
+            <div class="topic-content">
+                <h2>Eidi Cards</h2>
+                <p>Eidi cards make giving Eidi (Eid gifts) more special and memorable. These decorative envelopes or cards hold money, featuring Islamic calligraphy, festive designs, and warm wishes. Personalized Eidi cards add a thoughtful touch to the tradition, making Eid celebrations even more joyful for children and loved ones.  </p>
+            </div>
+        </div></a>
+       <a href="read-more-10.html"> <div class="topic" data-number="10">
+            <div class="topic-content">
+                <h2>Ring Albums</h2>
+                <p>Ring albums provide a stylish way to store and showcase rings. These albums, designed with slots and cushioned interiors, keep rings organized and protected. Ideal for jewelry lovers and collectors, they prevent scratches and damage. Available in elegant designs, they make thoughtful gifts for those passionate about accessories.</p>
+            </div>
+        </div></a>
+       <a href="read-more-11.html"> <div class="topic" data-number="11">
+            <div class="topic-content">
+                <h2>Magic Mirrors</h2>
+                <p>Magic mirrors are interactive mirrors with LED displays or smart features. They show time, weather, and notifications while functioning as regular mirrors. Some even use touch-screen technology. Personalized versions with engraved messages or images make unique gifts, adding a futuristic touch to home décor and enhancing daily convenience.  
+                </p>
+            </div>
+        </div></a>
+        <a href="read-more-12.html"> <div class="topic" data-number="12">
+            <div class="topic-content">
+                <h2>Pendants</h2>
+                <p>Pendants are stylish jewelry pieces worn on chains or bracelets. They come in various designs, including initials, hearts, and religious symbols. Personalized pendants with engraved names or photos make sentimental gifts. Available in gold, silver, and stainless steel, they add elegance to any outfit and hold emotional significance.  
+                </p>
+            </div>
+        </div></a>
+        <a href="read-more-13.html"> <div class="topic" data-number="13">
+            <div class="topic-content">
+                <h2>Pens</h2>
+                <p>Pens are timeless writing instruments that blend functionality with elegance. Available in fountain, ballpoint, and rollerball styles, they suit different writing preferences. Personalized pens with engraved names or messages make thoughtful gifts. Luxury brands offer high-end pens for professionals, while unique designs cater to collectors and writing enthusiasts.  </p>
+            </div>
+        </div></a>
+        <a href="read-more-14.html"> <div class="topic" data-number="14">
+            <div class="topic-content">
+                <h2>Customized bottles </h2>
+                <p>add style and functionality to daily hydration. Available in stainless steel, glass, and plastic, they keep beverages fresh. Personalized with names, quotes, or images, they make great gifts. Some feature temperature displays or infusers, making them ideal for fitness enthusiasts, office workers, and eco-conscious individuals. </p>
+            </div>
+        </div></a>
+        <a href="read-more-15.html"> <div class="topic" data-number="15">
+            <div class="topic-content">
+                <h2>Love Agreements</h2>
+                <p>Love agreements are symbolic contracts between couples, outlining promises and commitments in a creative way. Often written on decorative paper or engraved on plaques, they make romantic keepsakes. They strengthen relationships by emphasizing understanding and commitment. Personalized love agreements are popular as gifts for anniversaries and Valentine’s Day.  </p>
+            </div>
+        </div></a>
+        <a href="read-more-16.html"> <div class="topic" data-number="16">
+            <div class="topic-content">
+                <h2>Cups</h2>
+                <p>Personalized cups make everyday moments special. Whether ceramic, glass, or stainless steel, they feature custom designs, names, or quotes. Some include heat-sensitive color changes, adding a fun twist. Ideal as gifts or promotional items, custom cups enhance coffee breaks, making them a perfect blend of practicality and sentimentality.  
+                </p>
+            </div>
+        </div></a>
+        <a href="read-more-17.html"> <div class="topic" data-number="17">
+            <div class="topic-content">
+                <h2>Photo Diaries</h2>
+                <p>Photo diaries blend photography and journaling, preserving memories beautifully. With spaces for pictures and notes, they document special moments creatively. Customized with names and themes, they make meaningful gifts. Perfect for travel enthusiasts, couples, and families, these diaries turn everyday experiences into treasured keepsakes filled with emotions.  
+                </p>
+            </div>
+        </div></a>
+        <a href="read-more-18.html"> <div class="topic" data-number="18">
+            <div class="topic-content">
+                <h2>Calligraphy Canvas</h2>
+                <p>Calligraphy canvases showcase artistic lettering in various styles, from Arabic script to modern typography. These decorative pieces enhance home interiors with inspirational quotes or personalized names. Hand-painted or digitally printed, they are ideal gifts for art lovers. Elegant and timeless, calligraphy art adds sophistication to any living space.  
+                </p>
+            </div>
+        </div></a>
+        <a href="read-more-19.html"> <div class="topic" data-number="19">
+            <div class="topic-content">
+                <h2>Polaroid Photos</h2>
+                <p>Polaroid photos capture instant memories with a vintage charm. Unlike digital images, they develop instantly, adding a nostalgic feel. Perfect for scrapbooks, décor, or gifts, Polaroid pictures preserve special moments uniquely. Personalized Polaroid frames enhance their aesthetic appeal, making them timeless keepsakes for photography enthusiasts.  
+                </p>
+            </div>
+        </div></a>
+        <a href="read-more-20.html"> <div class="topic" data-number="20">
+            <div class="topic-content">
+                <h2>Wallet Cards</h2>
+                <p>Wallet cards are compact keepsakes designed to fit inside wallets. They feature engraved messages, QR codes, or small photos. Popular for anniversaries and motivational reminders, they serve as daily inspirations. Made of metal, plastic, or laminated paper, personalized wallet cards make thoughtful gifts for loved ones.  
+                </p>
+            </div>
+        </div></a>
+        <a href="read-more-21.html"> <div class="topic" data-number="21">
+            <div class="topic-content">
+                <h2>Resin Zigzag Round Table Tops</h2>
+                <p>Resin zigzag round table tops offer a modern touch to home décor. Their unique patterns, created using resin art, make each piece one-of-a-kind. Durable and stylish, they add sophistication to coffee tables or side tables. Custom designs allow for vibrant colors and embedded elements like flowers or glitter.  
+                </p>
+            </div>
+        </div></a>
+        <a href="read-more-23.html"> <div class="topic" data-number="22">
+            <div class="topic-content">
+                <h2>Hampers</h2>
+                <p>Gift hampers are thoughtful collections of treats, customized for occasions like birthdays, anniversaries, or festivals. They include chocolates, skincare, stationery, or gourmet foods. Beautifully packed in baskets or boxes, hampers make memorable gifts. Personalized hampers cater to individual tastes, offering a delightful surprise for recipients.  </p>
+            </div>
+        </div></a>
+        <a href="read-more-22.html"> <div class="topic" data-number="23">
+            <div class="topic-content">
+                <h2>Couple Bracelets</h2>
+                <p>Couple bracelets symbolize love and connection. Matching designs, engraved names, or custom coordinates make them special. Available in leather, beads, or metal, they are meaningful accessories for partners. Magnetic or interlocking bracelets add sentimental value, making them perfect gifts for anniversaries and long-distance relationships.  </p>
+            </div>
+        </div></a>
+        <a href="read-more-24.html"> <div class="topic" data-number="24">
+            <div class="topic-content">
+                <h2>Wedding Embroidery Hoops</h2>
+                <p>Wedding embroidery hoops feature hand-stitched designs celebrating marriage. They showcase couple names, wedding dates, or floral patterns on fabric. Framed in wooden hoops, they serve as elegant wall art or keepsakes. These personalized handmade gifts add a rustic, sentimental touch to wedding décor and anniversary celebrations.  
+                </p>
+            </div>
+        </div></a>
+        <a href="read-more-25.html"> <div class="topic" data-number="25">
+            <div class="topic-content">
+                <h2>Pen Stand Show Passion with Clock</h2>
+                <p>A pen stand with a clock is a stylish and functional desk accessory. It keeps writing tools organized while featuring a built-in clock for convenience. Personalized designs with names or motivational quotes make them perfect gifts. Ideal for students, professionals, and writers, they enhance workspace aesthetics efficiently.  </p>
+            </div>
+        </div></a>
+        <a href="read-more-26.html"> <div class="topic" data-number="26">
+            <div class="topic-content">
+                <h2>Mini Calendar with Photos</h2>
+                <p>Mini calendars with photos offer a personalized touch to planning. Featuring favorite pictures for each month, they make delightful desk or wall décor. Perfect for gifts, they preserve memories while serving a practical purpose. Compact and customizable, they brighten up workspaces with cherished moments throughout the year.</p>
+            </div>
+        </div></a>
+        <a href="read-more-28.html"> <div class="topic" data-number="27">
+            <div class="topic-content">
+                <h2>Clock</h2>
+                <p>A clock is more than just a timekeeping device; it's a statement piece in home and office décor. From classic wall clocks to modern digital ones, they add elegance to any space. Personalized clocks with custom designs, names, or photos make thoughtful gifts, combining functionality with sentimental value.  </p>
+            </div>
+        </div></a>
+        <a href="read-more-27.html"> <div class="topic" data-number="28">
+            <div class="topic-content">
+                <h2>Light Panda</h2>
+                <p>Light Panda is an adorable LED night lamp designed in the shape of a panda. It provides a soft, soothing glow, perfect for bedrooms or study areas. Rechargeable and touch-controlled, it’s ideal for kids and panda lovers. Aesthetic and functional, it enhances any room’s ambiance while serving as a nightlight.  </p>
+            </div>
+        </div></a>
+        <a href="read-more-29.html"> <div class="topic" data-number="29">
+            <div class="topic-content">
+                <h2>Aesthetic Frame</h2>
+                <p>An aesthetic frame enhances photos, quotes, or artwork, adding charm to interiors. Available in wooden, metallic, or resin designs, these frames match various décor styles. Customized frames with names or lights make them even more special. Ideal for gifting or personal use, they transform spaces with elegance and creativity.  </p>
+            </div>
+        </div></a>
+        <a href="read-more-30.html"> <div class="topic" data-number="30">
+            <div class="topic-content">
+                <h2>Topper</h2>
+                <p>Toppers add a personalized touch to cakes, gifts, and decorations. Whether made of acrylic, wood, or glitter paper, they enhance birthdays, weddings, and celebrations. Customized name toppers or themed designs make events more memorable. Stylish and reusable, they provide a unique and eye-catching finishing touch to special occasions.</p>
+            </div>
+        </div></a>
+        <!--  -->
+        <a href="read-more-31.html"> <div class="topic" data-number="31">
+            <div class="topic-content">
+                <h2>Ghibli Photo</h2>
+                <p>A Ghibli-style photo frame captures the charm and magic of Studio Ghibli’s art. With soft colors, whimsical designs,and nature-inspired elements, it adds a dreamy touch to your memories. Perfect for fans of fantasy and nostalgia, it turns every photo into a scene from a beloved Ghibli film.</p>
+            </div>
+        </div></a>
+        <!--  -->
+    </div>
+    </main>
+    <footer>
+        <div class="container"> 
+            <div class="row">
+                <div class="col company">
+                    <p id="foot-icon">Welcome to my blogging website where we share insightful content on your blogs. Stay connected for the latest updates, tips & trends. Follow us on social media & subscribe to our newsletter.</p>
+                </div>
+                <div class="col">
+                    <h3>Quick Links</h3>
+                    <p><a class="remove" href="home.html">Home</a></p>
+                    <p><a class="remove" href="blog-page.html">Blog</a></p>
+                    <p><a class="remove" href="topics-page.html">Topics</a></p>
+                    <p><a class="remove" href="latest-post-page.html">Latest Post</a></p>
+                    <p><a class="remove" href="about-page.html">About Us</a></p>
+                    <p><a class="remove" href="contact-page.html">Contact Us</a></p>
+                </div>
+                <div class="col">
+                    <h3>Legal Policies</h3>
+                    <p><a class="remove" href="privacy-page.html">Privacy Policy</a></p>
+                    <p><a class="remove" href="terms-condition-page.html">Terms & Conditions</a></p>
+                    <p><a class="remove" href="disclaimer-page.html">Disclaimer</a></p>
+                    <p><a class="remove" href="blog-resources-page.html">Blog Resources</a></p>
+                    <p><a class="remove" href="copyright-page.html">Copyright</a></p>
+                    <p><a class="remove" href="FAQ-page.html">FAQs</a></p>
+                </div>
+                <div class="col">
+                    <h3>Product Related</h3>
+                    <p><a class="remove" href="service-page.html">Services</a></p>
+                    <p><a class="remove" href="feature-page.html">Features</a></p>
+                    <p><a class="remove" href="review-page.html">Blog Reviews</a></p>
+                    <p><a class="remove" href="popular-post-page.html">Popular Posts</a></p>
+                    <p><a class="remove" href="freelancer-page.html">Freelancers</a></p>
+                    <p><a class="remove" href="advertise-page.html">Advertise With Us</a></p>
+                </div>
+                <div class="col explore">
+                    <h3>Explore More</h3>
+                    <form>
+                        <i class="fa-solid fa-envelope" id="envelope"></i>
+                        <input type="email" placeholder="Enter your email id" required>
+                        <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                    </form>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/share/19Fxw6ZmtV/"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/digital_"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://wa.me/917037350523"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://x.com/digitaldyn81811?t=uFlUqkQbARhyXJQnU3dE1A&s=09"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="cont">
+                <hr>
+                <div class="down">
+                    <span><a href="conditon-use-sale.html" class="remove">Conditions of Use & Sale</a></span>
+                    <span><a href="interest-based-ads.html" class="remove">Interest-Based Ads</a></span>
+                </div>
+                <p class="copyright">© 2020-2025, BlogWebsite. All rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+    <script defer src="final.js"></script>
+</body>
+</html>

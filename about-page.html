@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="images/web-icon.png">
+  <title>About me - Infinity Universal Aura</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <style>
+    /* main-content */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  } 
+  body{
+    background-color: #e6e6e6;
+  }
+  .up{
+    position: sticky;
+    top: 0;
+    height: 65px;
+    width: 100%;
+    z-index: 1000;
+  }
+  .top-navbar{
+    background-color: #00b7a5;
+    position:sticky;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .top-navbar h4{
+    font-size: 15px;
+    font-weight: 700;
+    font-family: cursive;
+    font-style: italic;
+    color: #ffffff;
+  }
+  .logo{
+    font-size: 25px;
+    color: #33363d;
+  }
+  .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: #ffffff;
+      height: 75px;
+      border-bottom: 2px solid #00b7a5;
+  }
+  .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      padding-right: 50px;
+  }
+  
+  .nav-links li a {
+      color: #333;
+      text-decoration: none;
+      font-size:  .9375em;
+      font-family: arial;
+      font-weight: 300;
+      padding-left: 15px;
+      padding-top: 20px;
+  }
+  .nav-links li:hover a{
+    color:#00b7a5;
+  }
+  .nav-2{
+    display: flex;
+    background-color: #00b7a5;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+  }
+  
+  .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 24px;
+      cursor: pointer;
+      position: absolute;
+      right: 22px;
+  }
+  .menu-toggle:hover{
+    font-size: 30px;
+    color: #00b7a5;
+  }
+  
+  .sidebar {
+      position: fixed;
+      top: 105px;
+      left: -100%;
+      width: 250px;
+      height: 60%;
+      background-color: #ffffff;
+      padding: 20px;
+      transition: left 0.3s ease-in-out;
+      visibility: hidden;
+      z-index: 1000;
+      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  .sidebar ul {
+    list-style: none;
+    padding: 0; 
+}
+.sidebar ul li a:hover{
+    box-shadow: 0 2px 7px #00897b;
+    /* background-color: #e6e6e7; */
+    color: #00b7a5;
+}
+
+.sidebar ul li a {
+  color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    left: 200px;
+    top:33px;
+    font-family: arial;
+}
+.close-btn {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    left:215px;
+}
+.close-btn:hover{
+  font-size: 30px;
+  color: #00b7a5;
+}
+.show{
+    display: none;
+    position: absolute;
+    background-color:#ffffff ;
+    min-width: 170px;
+    z-index: 1;
+    padding-left: 15px;
+  
+  }
+  .show li{
+    float: none;
+    list-style: none;
+  }
+  .show li a{
+    color: #333;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    line-height: 14px;
+    padding-bottom: 30px;
+    height: 45px;
+  }
+  .cat:hover .show{
+    display: block;
+  }
+  .cat:hover .show a{
+    color: #333;
+  }
+  .cat:hover .show a:hover{
+    color:#00b7a5;
+  }
+  .show li a:hover{
+    box-shadow: 0 2px 7px #00897b;
+    /* background-color: #e6e6e75d; */
+  }
+  @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+    } 
+}
+  /* Body Styling */
+  #heading{
+    font-style: italic;
+    color:#00b7a5;
+    text-decoration:none;
+    font-family: cursive;
+    font-size:40px;
+
+  }
+  /* Container */
+  .container1 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #ffffff;
+  }
+  main{
+    margin-top: 70px;
+  }
+  /* Left Section */
+  .left-section {
+    width: 60%;
+    padding: 20px;
+  }
+  
+  .left-section h1 {
+    color: #2e423f;
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight:bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  }
+  h2{
+    color: #00b7a5;
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+  .main-image {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border:6px solid #00b7a5;
+  }
+  
+  .left-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-family:'serif', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  /* Right Section */
+  .right-section {
+    width: 40%;
+    background-color:#00b7a5;
+    color: #ffffff;
+    padding: 20px;
+  }
+  
+  .right-section img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  .right-section h2 {
+    font-size: 24px;
+    margin: 10px 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    color: white;
+ 
+  }
+  
+  .right-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  /* Responsive Media Query */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .left-section,
+    .right-section {
+      width: 100%;
+    }
+  
+    .main-image {
+      height: auto;
+    }
+  }
+  /* footer */
+  footer {
+    width: 100%;
+    background: #f5f5f5;
+    color:black;
+    padding: 20px 0;
+    font-size: 14px;
+    border-top-right-radius: 200px;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 30px;
+}
+footer h2, footer h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    padding-top: 30px;
+}
+footer a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+footer p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 300;
+    padding-top: 15px;
+}
+/* Footer Container */
+.container {
+    width: 85%;
+    margin: auto;
+    /* height: 100%; */
+}
+
+/* Row Layout */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Columns (Ensure 4 columns fit in one row) */
+.col {
+    flex: 0 0 22%;
+    min-width: 200px;
+    margin-bottom: 10px;
+}
+
+/* Column Titles */
+.col h3 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.col h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 3px;
+    /* background: linear-gradient(to right, black,#b3b3b3); */
+}
+
+/* Footer Links */
+.remove {
+    text-decoration: none;
+    color: #808080;
+    line-height: 25px;
+}
+
+.remove:hover {
+    color:#00b7a5;
+}
+
+/* Newsletter Section */
+.explore form {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #808080;
+    padding-bottom: 5px;
+    width: 250px;
+}
+.explore form input {
+    height:30px;
+    flex: 1;
+    background:white;
+    border: none;
+    outline: none;
+    color: #808080;
+    padding: 5px;
+    position: relative;
+    bottom:10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 2px solid #808080;
+    border-right: none; 
+    margin-top: 10px; 
+}
+.explore form input:hover {
+    box-shadow: 0 0 5px #00b7a5;
+}
+#envelope{
+    position: relative;
+    bottom:10px;
+    font-size: 30px;
+    padding-right: 5px;
+    margin-top: 10px; 
+}
+.explore input::placeholder {
+    color: #808080;;
+}
+
+.explore form button {
+    height:30px;
+    width:25px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background:#00b7a5;
+    border: none;
+    cursor: pointer;
+    color:white;
+    position: relative;
+    bottom:10px;
+    border: 2px solid #808080;
+    border-left: none;
+    margin-top: 10px; 
+    
+}
+#foot-icon {
+    font-family: cursive;
+    color:#2c2c2c;
+}
+
+/* Social Icons */
+.social-icons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.social-icons i {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background:white;
+    color:#00b7a5;
+    border:1px solid #00b7a5;
+    font-size: 16px;
+    cursor: pointer;
+}
+.fa-instagram:hover {
+    background-color:#e4405f;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-facebook:hover {
+    background-color:#1877f2;
+    color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-whatsapp:hover {
+   background-color: #25d366;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.fa-x-twitter:hover {
+    background-color: black;
+   color:white;
+    transform: scale(1.1) rotate(10deg);
+}
+.social-icons a {
+    text-decoration: none;
+}
+/* Legal & Copyright Section */
+.cont {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+}
+
+.down {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.down a {
+    text-decoration: none;
+    color: #808080;
+    font-size: 14px;
+}
+
+.down a:hover {
+    color:#00b7a5;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 12px;
+    color:black;
+    font-weight: 300;
+}
+.top-navbar{
+    background-color: #00b7a5;
+    position: sticky;
+    width: 100%;
+    height:40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.top-navbar h4 {
+    font-size: 15px;
+    font-weight: 700;
+    font-family: cursive;
+    font-style: italic;
+    color:white;
+}
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .col {
+        flex: 0 0 48%;
+    }
+}
+
+@media (max-width: 600px) {
+    .col {
+        flex: 0 0 100%;
+        text-align: center;
+    }
+    
+    .down {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Centering Email Input */
+    .explore form {
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    /* Centering Social Icons */
+    .social-icons {
+        justify-content: center;
+    }
+    #foot-icon{
+      padding-right: 50px;
+    }
+}
+.logo img{
+  width: 120px;
+  height: 50px;
+ 
+}
+  </style>
+</head>
+<body>
+  <div class="up">
+          <!-- Header -->
+          <header>
+            <div class="top-navbar">
+                <h4>&hearts;&nbsp; Explore The World Of Personalized Gifts</h4>
+            </div>
+            <nav class="navbar">
+                <div class="logo"><img src="images/web-name.jpg" alt="img"></div>
+                <ul class="nav-links" id="nav-links"></ul>
+                <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+            </nav>
+        </header>
+    
+        <!-- Sidebar Menu -->
+        <aside class="sidebar" id="sidebar">
+            <button class="close-btn" id="close-btn">&times;</button>
+            <ul id="sidebar-links"></ul>
+        </aside>
+    
+        <!-- Hidden Menu Items (Used for both Navbar & Sidebar) -->
+        <ul id="menu-items" style="display: none;">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about-page.html">About</a></li>
+            <li><a href="contact-page.html">Contacts</a></li>
+            <li class="cat"><a href="#">Categories</a>
+                <ul class="show">
+                    <li><a href="gift-items-page.html">Gifts Item</a></li>
+                    <li><a href="wedding-gift-page.html">Wedding Items</a></li>
+                    <li><a href="calligraphy-items-page.html">Calligraphy Frames</a></li>
+                    <li><a href="occasion-item-page.html">Occasions Items</a></li>
+                    <li><a href="Home-decor-item-page.html">Home Decor Items</a></li>
+                </ul>
+            </li>
+        </ul>
+      </div>
+  <main>
+  <div class="container1">
+    <!-- Left Section -->
+    <div class="left-section">
+      <h1 id="heading">ABOUT US</h1>
+      <img src="images/abou-img.jpg" alt="Modern Glass Building" class="main-image" />
+      <h2>Our Mission:</h2>
+      <p>
+        At <b>Infinity Universal Aura</b>, our mission is to provide a platform where creativity, knowledge, and inspiration come together to empower our readers. We strive to deliver informative, engaging, and thought-provoking content that resonates with a wide range of people—whether you're here for practical tips, personal stories, or expert advice. Our aim is to create a space where readers feel inspired to explore new ideas, challenge their perspectives, and make informed decisions.
+      </p>
+      <p>We understand that the digital world is overflowing with information, and in the midst of it all, it can be difficult to find content that truly adds value. That’s why we are committed to providing content that is not only relevant and accurate but also meaningful and easy to relate to. Whether we are covering the latest trends, offering solutions to everyday problems, or diving deep into niche topics, we believe in making every post count. Our mission is to guide, inform, and inspire through every article, and we do so with passion and purpose.</p>
+      <p>Our commitment is to remain a trusted resource for our readers—constantly evolving to keep up with the changing needs of our community, and always delivering value with authenticity and sincerity.</p>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section">
+      <div class="top-image">
+        <img src="images/about3.jpg" alt="Studio Silhouette" />
+        <h2>Our Values:</h2>
+        <p>
+            At <b>Infinity Universal Aura</b>, we are guided by integrity, creativity, and community. We believe in providing honest, well-researched content that adds value to our readers' lives. Our aim is to inspire, inform, and engage by offering diverse perspectives and fostering meaningful conversations. We are committed to creating a space where every reader feels heard, respected, and connected.
+        </p>
+      </div>
+      <div class="bottom-image">
+        <img src="images/about2.jpg" alt="Person Working on Laptop" />
+        <h2>Our Story:</h2>
+        <p>
+            <b>Infinity Universal Aura</b> began in <b>2025</b> with a simple passion to share valuable insights, stories, and experiences with the world. What started as a small project has grown into a trusted platform for readers seeking inspiration and practical advice. As our community expands, we continue to evolve, staying true to our mission of providing authentic, engaging, and relevant content. We're excited to keep growing and connecting with our readers along the way.
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="container"> 
+      <div class="row">
+          <div class="col company">
+              <p id="foot-icon">Welcome to my blogging website where we share insightful content on your blogs. Stay connected for the latest updates, tips & trends. Follow us on social media & subscribe to our newsletter.</p>
+          </div>
+          <div class="col">
+              <h3>Quick Links</h3>
+              <p><a class="remove" href="home.html">Home</a></p>
+              <p><a class="remove" href="blog-page.html">Blog</a></p>
+              <p><a class="remove" href="topics-page.html">Topics</a></p>
+              <p><a class="remove" href="latest-post-page.html">Latest Post</a></p>
+              <p><a class="remove" href="about-page.html">About Us</a></p>
+              <p><a class="remove" href="contact-page.html">Contact Us</a></p>
+          </div>
+          <div class="col">
+              <h3>Legal Policies</h3>
+              <p><a class="remove" href="privacy-page.html">Privacy Policy</a></p>
+              <p><a class="remove" href="terms-condition-page.html">Terms & Conditions</a></p>
+              <p><a class="remove" href="disclaimer-page.html">Disclaimer</a></p>
+              <p><a class="remove" href="blog-resources-page.html">Blogging Resources</a></p>
+              <p><a class="remove" href="copyright-page.html">Copyright</a></p>
+              <p><a class="remove" href="FAQ-page.html">FAQs</a></p>
+          </div>
+          <div class="col">
+              <h3>Product Related</h3>
+              <p><a class="remove" href="service-page.html">Services</a></p>
+              <p><a class="remove" href="feature-page.html">Features</a></p>
+              <p><a class="remove" href="review-page.html">Blog Reviews</a></p>
+              <p><a class="remove" href="popular-post-page.html">Popular Posts</a></p>
+              <p><a class="remove" href="freelancer-page.html">Freelancers</a></p>
+              <p><a class="remove" href="advertise-page.html">Advertise With Us</a></p>
+          </div>
+          <div class="col explore">
+              <h3>Explore More</h3>
+              <form>
+                  <i class="fa-solid fa-envelope" id="envelope"></i>
+                  <input type="email" placeholder="Enter your email id" required>
+                  <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+              </form>
+              <div class="social-icons">
+                  <a href="https://www.facebook.com/share/19Fxw6ZmtV/"><i class="fa-brands fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/digital_"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="https://wa.me/917037350523"><i class="fa-brands fa-whatsapp"></i></a>
+                  <a href="https://x.com/digitaldyn81811?t=uFlUqkQbARhyXJQnU3dE1A&s=09"><i class="fa-brands fa-x-twitter"></i></a>
+              </div>
+          </div>
+      </div>
+      <div class="cont">
+          <hr>
+          <div class="down">
+              <span><a href="conditon-use-sale.html" class="remove">Conditions of Use & Sale</a></span>
+              <span><a href="interest-based-ads.html" class="remove">Interest-Based Ads</a></span>
+          </div>
+          <p class="copyright">© 2020-2025, BlogWebsite. All rights Reserved</p>
+      </div>
+  </div>
+</footer>
+<script src="final.js"></script>
+</body>
+</html>
+</body>
+</html>
